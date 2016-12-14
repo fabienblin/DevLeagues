@@ -1,0 +1,31 @@
+home:
+    path:     /
+    defaults: { _controller: DevLeaguesBundle:Home:index }
+
+events:
+    path:     events
+    defaults: { _controller: DevLeaguesBundle:Event:index }
+
+community:
+    path:     community
+    defaults: { _controller: DevLeaguesBundle:Community:index }
+
+about:
+    path:     about
+    defaults: { _controller: DevLeaguesBundle:About:index }
+
+news:
+    path:     news
+    defaults: { _controller: DevLeaguesBundle:News:index }
+
+leagues:
+    path:     leagues
+    defaults: { _controller: DevLeaguesBundle:Leagues:index }
+
+contact:
+    path:     contact
+    defaults: { _controller: DevLeaguesBundle:Contact:index }
+
+error:
+    path:     error
+    defaults: { _controller: DevLeaguesBundle:Error:index }

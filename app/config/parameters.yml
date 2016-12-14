@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: fabienblin.fr
+    database_port: null
+    database_name: fabie307_devleagues
+    database_user: fabie307_dev
+    database_password: admin
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: b65b9c1acc576591af0ba023d933f97966a91778
