@@ -2,7 +2,7 @@
 symfony 3 bootstrap mysql jquerry
 
 Legal :
-all copyright reserved to Fabien Blin and associates
+all rights reserved to Fabien Blin and associates
 
 Contact :
 fabienblin.fr

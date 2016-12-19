@@ -35,6 +35,10 @@ class Reward
      */
     private $value;
 
+	/**
+     * @ORM\ManyToMany(targetEntity="Event", mappedBy="rewards")
+     */
+    private $events;
 
     /**
      * Get id
@@ -93,5 +97,49 @@ class Reward
     {
         return $this->value;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add event
+     *
+     * @param \DevLeaguesBundle\Entity\User $event
+     *
+     * @return Reward
+     */
+    public function addEvent(\DevLeaguesBundle\Entity\User $event)
+    {
+        $this->events[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \DevLeaguesBundle\Entity\User $event
+     */
+    public function removeEvent(\DevLeaguesBundle\Entity\User $event)
+    {
+        $this->events->removeElement($event);
+    }
+
+    /**
+     * Get events
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+	public function __toString() {
+		return $this->name;
+	}
+}

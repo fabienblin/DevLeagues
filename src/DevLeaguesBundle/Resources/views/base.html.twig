@@ -31,8 +31,21 @@
 		{{ include('DevLeaguesBundle::navbar.html.twig') }}
 	    <div class="container">
 			<div class="row starter-template">
-				<div class="sidebar col-sm-3">{{ include('DevLeaguesBundle::sidebar.html.twig') }}</div>
-				<div class="body col-sm-8">{% block body %}{% endblock %}</div>
+				<div class="sidebar col-sm-3">
+					<div class="container-fluid">
+						{{ include('DevLeaguesBundle::sidebar.html.twig') }}
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="body container-fluid">
+						<ol class="breadcrumb">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Library</a></li>
+							<li class="active">Data</li>
+						</ol>
+						{% block body %}{% endblock %}
+					</div>
+				</div>
 			</div>
 	    </div><!-- /.container -->
 

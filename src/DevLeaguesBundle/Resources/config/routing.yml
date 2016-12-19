@@ -6,6 +6,14 @@ events:
     path:     events
     defaults: { _controller: DevLeaguesBundle:Event:index }
 
+new_event:
+    path:       event/new
+    defaults:   { _controller: DevLeaguesBundle:Event:new }
+
+show_event:
+    path:       event/{eventId}
+    defaults:   { _controller: DevLeaguesBundle:Event:show }
+
 community:
     path:     community
     defaults: { _controller: DevLeaguesBundle:Community:index }

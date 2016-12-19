@@ -1,9 +1,18 @@
-<h1>Sidebar</h1>
-<ul>
-	<li>test</li>
-	<li>test</li>
-	<li>test</li>
-	<li>test</li>
-	<li>test</li>
-	<li>test</li>
+<h3>My Account</h3>
+<ul class="nav nav-stacked nav-pills">
+	<li role="presentation" class="active">
+		<a href="{{ path('fos_user_profile_show') }}">Profile</a>
+	</li>
+	<li role="presentation">
+		<a href="#">Messages <span class="badge">4</span></a>
+	</li>
+	<li role="presentation">
+		<a href="#">Friendzone</a>
+	</li>
+	<li role="presentation">
+		<a href="{{ path('new_event') }}">Events</a>
+	</li>
+	<li role="presentation">
+		<a href="#">Bla bla</a>
+	</li>
 </ul>

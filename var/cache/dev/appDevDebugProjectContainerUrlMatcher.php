@@ -109,9 +109,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'DevLeaguesBundle\\Controller\\HomeController::indexAction',  '_route' => 'home',);
         }
 
-        // events
-        if ($pathinfo === '/events') {
-            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::indexAction',  '_route' => 'events',);
+        if (0 === strpos($pathinfo, '/event')) {
+            // events
+            if ($pathinfo === '/events') {
+                return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::indexAction',  '_route' => 'events',);
+            }
+
+            // new_event
+            if ($pathinfo === '/event/new') {
+                return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::newAction',  '_route' => 'new_event',);
+            }
+
+            // show_event
+            if (preg_match('#^/event/(?P<eventId>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_event')), array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::showAction',));
+            }
+
         }
 
         // community
