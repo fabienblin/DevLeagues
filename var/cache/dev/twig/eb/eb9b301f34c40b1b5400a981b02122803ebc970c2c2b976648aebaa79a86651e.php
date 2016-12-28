@@ -22,38 +22,48 @@ class __TwigTemplate_a48b60eb9b67c99c3fa1ca823594a0f191a607f1340b2ffa0dcc13dd322
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d7ddae6f8ca843864a29f6ab3791470ff08616eba84f58c520ed1c9d48e3ff8b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_d7ddae6f8ca843864a29f6ab3791470ff08616eba84f58c520ed1c9d48e3ff8b->enter($__internal_d7ddae6f8ca843864a29f6ab3791470ff08616eba84f58c520ed1c9d48e3ff8b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle:About:index.html.twig"));
+        $__internal_8967b7e5240cab4bb9fc0c2a8ef164315b5ae0acede97a1a924868d39c399275 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8967b7e5240cab4bb9fc0c2a8ef164315b5ae0acede97a1a924868d39c399275->enter($__internal_8967b7e5240cab4bb9fc0c2a8ef164315b5ae0acede97a1a924868d39c399275_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle:About:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d7ddae6f8ca843864a29f6ab3791470ff08616eba84f58c520ed1c9d48e3ff8b->leave($__internal_d7ddae6f8ca843864a29f6ab3791470ff08616eba84f58c520ed1c9d48e3ff8b_prof);
+        $__internal_8967b7e5240cab4bb9fc0c2a8ef164315b5ae0acede97a1a924868d39c399275->leave($__internal_8967b7e5240cab4bb9fc0c2a8ef164315b5ae0acede97a1a924868d39c399275_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_6c509a72b33b5f7fbd537acc92d5ea718ee170c7873eee4e01ae508ed1608d5e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6c509a72b33b5f7fbd537acc92d5ea718ee170c7873eee4e01ae508ed1608d5e->enter($__internal_6c509a72b33b5f7fbd537acc92d5ea718ee170c7873eee4e01ae508ed1608d5e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_dea36da15c7e3a97c568c696a8c848315cf39aeef821f189a71a2dbe52bfd18c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_dea36da15c7e3a97c568c696a8c848315cf39aeef821f189a71a2dbe52bfd18c->enter($__internal_dea36da15c7e3a97c568c696a8c848315cf39aeef821f189a71a2dbe52bfd18c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "DevLeaguesBundle:About:index";
         
-        $__internal_6c509a72b33b5f7fbd537acc92d5ea718ee170c7873eee4e01ae508ed1608d5e->leave($__internal_6c509a72b33b5f7fbd537acc92d5ea718ee170c7873eee4e01ae508ed1608d5e_prof);
+        $__internal_dea36da15c7e3a97c568c696a8c848315cf39aeef821f189a71a2dbe52bfd18c->leave($__internal_dea36da15c7e3a97c568c696a8c848315cf39aeef821f189a71a2dbe52bfd18c_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_73e6ccefc6ad47c6ca034cb9e66a309af78144d192a8dc0835ad15dc12589a69 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_73e6ccefc6ad47c6ca034cb9e66a309af78144d192a8dc0835ad15dc12589a69->enter($__internal_73e6ccefc6ad47c6ca034cb9e66a309af78144d192a8dc0835ad15dc12589a69_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_22bc87aadee1e70425020f1acde8bd527941dc12286370c67fb9eebd8598a49d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_22bc87aadee1e70425020f1acde8bd527941dc12286370c67fb9eebd8598a49d->enter($__internal_22bc87aadee1e70425020f1acde8bd527941dc12286370c67fb9eebd8598a49d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<h1>Welcome to the About:index page</h1>
+        echo "<h1>About DevLeagues</h1>
+<p>
+\tThis project started on december 2016 by Fabien Blin, as a personal project
+\tbut with the conviction it could be the beginning of a great adventure.
+</p>
+<p>
+\tThe idea came after some delicious pizza with schoolmates, talking about how
+\tto challenge newbies on simple school exercices. Moreover, it would be
+\tessencial to reward masters and pupils for their participation and get
+\treputation from victories in order to show other schoolmates the best teams.
+</p>
 ";
         
-        $__internal_73e6ccefc6ad47c6ca034cb9e66a309af78144d192a8dc0835ad15dc12589a69->leave($__internal_73e6ccefc6ad47c6ca034cb9e66a309af78144d192a8dc0835ad15dc12589a69_prof);
+        $__internal_22bc87aadee1e70425020f1acde8bd527941dc12286370c67fb9eebd8598a49d->leave($__internal_22bc87aadee1e70425020f1acde8bd527941dc12286370c67fb9eebd8598a49d_prof);
 
     }
 
@@ -87,7 +97,17 @@ class __TwigTemplate_a48b60eb9b67c99c3fa1ca823594a0f191a607f1340b2ffa0dcc13dd322
 {% block title %}DevLeaguesBundle:About:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the About:index page</h1>
+<h1>About DevLeagues</h1>
+<p>
+\tThis project started on december 2016 by Fabien Blin, as a personal project
+\tbut with the conviction it could be the beginning of a great adventure.
+</p>
+<p>
+\tThe idea came after some delicious pizza with schoolmates, talking about how
+\tto challenge newbies on simple school exercices. Moreover, it would be
+\tessencial to reward masters and pupils for their participation and get
+\treputation from victories in order to show other schoolmates the best teams.
+</p>
 {% endblock %}
 ", "DevLeaguesBundle:About:index.html.twig", "/var/www/html/devleagues/github/src/DevLeaguesBundle/Resources/views/About/index.html.twig");
     }

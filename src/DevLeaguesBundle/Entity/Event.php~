@@ -35,7 +35,14 @@ class Event
     private $name;
 
 	/**
-     * @var \DateTime $created
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+	/**
+     * @var \DateTime $creationTimestamp
      *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
@@ -43,7 +50,7 @@ class Event
 	private $creationTimestamp;
 
 	/**
-     * @var \DateTime $created
+     * @var \DateTime $endTimestamp
      *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
@@ -114,6 +121,7 @@ class Event
     {
         $this->users = new ArrayCollection();
         $this->rewards = new ArrayCollection();
+		$this->creationTimestamp = new \DateTime();
     }
 
     /**
@@ -264,5 +272,29 @@ class Event
     public function getTechnologies()
     {
         return $this->technologies;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Event
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

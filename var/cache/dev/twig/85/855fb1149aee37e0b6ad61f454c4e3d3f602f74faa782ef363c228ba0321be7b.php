@@ -21,26 +21,34 @@ class __TwigTemplate_2f407b7fa0157112d825064ed4c7b9025606f22cb1d18249875134cd148
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1771995e5b21b73b4c07e36c227f41e26369535da7b38e0e11076f6f60276aa0 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1771995e5b21b73b4c07e36c227f41e26369535da7b38e0e11076f6f60276aa0->enter($__internal_1771995e5b21b73b4c07e36c227f41e26369535da7b38e0e11076f6f60276aa0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle:Event:index.html.twig"));
+        $__internal_b24b50a957bfe848507e82ef7d910d1704651bc36cd280c7bf33ef909f0e2e9c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b24b50a957bfe848507e82ef7d910d1704651bc36cd280c7bf33ef909f0e2e9c->enter($__internal_b24b50a957bfe848507e82ef7d910d1704651bc36cd280c7bf33ef909f0e2e9c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle:Event:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_1771995e5b21b73b4c07e36c227f41e26369535da7b38e0e11076f6f60276aa0->leave($__internal_1771995e5b21b73b4c07e36c227f41e26369535da7b38e0e11076f6f60276aa0_prof);
+        $__internal_b24b50a957bfe848507e82ef7d910d1704651bc36cd280c7bf33ef909f0e2e9c->leave($__internal_b24b50a957bfe848507e82ef7d910d1704651bc36cd280c7bf33ef909f0e2e9c_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_dcd4d0173539398fc060a2139335a2355aee781022038a4155777932be4e3d96 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_dcd4d0173539398fc060a2139335a2355aee781022038a4155777932be4e3d96->enter($__internal_dcd4d0173539398fc060a2139335a2355aee781022038a4155777932be4e3d96_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_364695224d365f8ec7bdc87258a6490d608541c9600baac2b617729a5f343a1a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_364695224d365f8ec7bdc87258a6490d608541c9600baac2b617729a5f343a1a->enter($__internal_364695224d365f8ec7bdc87258a6490d608541c9600baac2b617729a5f343a1a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
 <h1>All the current events</h1>
+<div class=\"btn-group\" role=\"group\" aria-label=\"...\">
+\t<a href=\"";
+        // line 7
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("new_event");
+        echo "\">
+\t\t<button type=\"button\" class=\"btn btn-default\">Create Event</button>
+\t</a>
+</div>
 ";
-        // line 6
+        // line 11
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["events"]) ? $context["events"] : $this->getContext($context, "events")));
         $context['loop'] = array(
@@ -57,9 +65,9 @@ class __TwigTemplate_2f407b7fa0157112d825064ed4c7b9025606f22cb1d18249875134cd148
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["_key"] => $context["event"]) {
-            // line 7
+            // line 12
             echo "\t";
-            $this->loadTemplate("DevLeaguesBundle:Event:show.html.twig", "DevLeaguesBundle:Event:index.html.twig", 7)->display($context);
+            $this->loadTemplate("DevLeaguesBundle:Event:showReduced.html.twig", "DevLeaguesBundle:Event:index.html.twig", 12)->display($context);
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
             $context['loop']['first'] = false;
@@ -72,7 +80,7 @@ class __TwigTemplate_2f407b7fa0157112d825064ed4c7b9025606f22cb1d18249875134cd148
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['event'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 9
+        // line 14
         echo "<nav aria-label=\"Page navigation\">
 \t<ul class=\"pagination\">
 \t\t<li>
@@ -94,7 +102,7 @@ class __TwigTemplate_2f407b7fa0157112d825064ed4c7b9025606f22cb1d18249875134cd148
 </nav>
 ";
         
-        $__internal_dcd4d0173539398fc060a2139335a2355aee781022038a4155777932be4e3d96->leave($__internal_dcd4d0173539398fc060a2139335a2355aee781022038a4155777932be4e3d96_prof);
+        $__internal_364695224d365f8ec7bdc87258a6490d608541c9600baac2b617729a5f343a1a->leave($__internal_364695224d365f8ec7bdc87258a6490d608541c9600baac2b617729a5f343a1a_prof);
 
     }
 
@@ -110,7 +118,7 @@ class __TwigTemplate_2f407b7fa0157112d825064ed4c7b9025606f22cb1d18249875134cd148
 
     public function getDebugInfo()
     {
-        return array (  76 => 9,  61 => 7,  44 => 6,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  84 => 14,  69 => 12,  52 => 11,  45 => 7,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -128,8 +136,13 @@ class __TwigTemplate_2f407b7fa0157112d825064ed4c7b9025606f22cb1d18249875134cd148
 {% block body %}
 
 <h1>All the current events</h1>
+<div class=\"btn-group\" role=\"group\" aria-label=\"...\">
+\t<a href=\"{{ path('new_event') }}\">
+\t\t<button type=\"button\" class=\"btn btn-default\">Create Event</button>
+\t</a>
+</div>
 {% for event in events %}
-\t{% include 'DevLeaguesBundle:Event:show.html.twig' %}
+\t{% include 'DevLeaguesBundle:Event:showReduced.html.twig' %}
 {% endfor %}
 <nav aria-label=\"Page navigation\">
 \t<ul class=\"pagination\">

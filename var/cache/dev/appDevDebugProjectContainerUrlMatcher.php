@@ -109,27 +109,29 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'DevLeaguesBundle\\Controller\\HomeController::indexAction',  '_route' => 'home',);
         }
 
-        if (0 === strpos($pathinfo, '/event')) {
-            // events
-            if ($pathinfo === '/events') {
-                return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::indexAction',  '_route' => 'events',);
-            }
+        // events
+        if ($pathinfo === '/events') {
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::indexAction',  '_route' => 'events',);
+        }
 
-            // new_event
-            if ($pathinfo === '/event/new') {
-                return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::newAction',  '_route' => 'new_event',);
-            }
+        // new_event
+        if ($pathinfo === '/new_event') {
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::newAction',  '_route' => 'new_event',);
+        }
 
-            // show_event
-            if (preg_match('#^/event/(?P<eventId>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_event')), array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::showAction',));
-            }
+        // show_event
+        if (0 === strpos($pathinfo, '/show_event') && preg_match('#^/show_event/(?P<eventName>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_event')), array (  '_controller' => 'DevLeaguesBundle\\Controller\\EventController::showAction',));
+        }
 
+        // user_show_events
+        if ($pathinfo === '/profile/events') {
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\ProfileController::showEventsAction',  '_route' => 'user_show_events',);
         }
 
         // community
         if ($pathinfo === '/community') {
-            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\CommunityController::indexAction',  '_route' => 'community',);
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\ProfileController::indexAction',  '_route' => 'community',);
         }
 
         // about
@@ -144,7 +146,22 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         // leagues
         if ($pathinfo === '/leagues') {
-            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\LeaguesController::indexAction',  '_route' => 'leagues',);
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\LeagueController::indexAction',  '_route' => 'leagues',);
+        }
+
+        // show_league
+        if (0 === strpos($pathinfo, '/show_league') && preg_match('#^/show_league/(?P<leagueName>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_league')), array (  '_controller' => 'DevLeaguesBundle\\Controller\\LeagueController::showAction',));
+        }
+
+        // user_show_leagues
+        if ($pathinfo === '/profile/leagues') {
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\ProfileController::showLeaguesAction',  '_route' => 'user_show_leagues',);
+        }
+
+        // new_league
+        if ($pathinfo === '/new_league') {
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\LeagueController::newAction',  '_route' => 'new_league',);
         }
 
         // contact
@@ -155,6 +172,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         // error
         if ($pathinfo === '/error') {
             return array (  '_controller' => 'DevLeaguesBundle\\Controller\\ErrorController::indexAction',  '_route' => 'error',);
+        }
+
+        // user_show_friends
+        if ($pathinfo === '/friendzone') {
+            return array (  '_controller' => 'DevLeaguesBundle\\Controller\\ProfileController::showfriendsAction',  '_route' => 'user_show_friends',);
+        }
+
+        // user_show_profile
+        if (0 === strpos($pathinfo, '/profile') && preg_match('#^/profile/(?P<userName>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_show_profile')), array (  '_controller' => 'DevLeaguesBundle\\Controller\\ProfileController::showProfileAction',));
         }
 
         if (0 === strpos($pathinfo, '/log')) {

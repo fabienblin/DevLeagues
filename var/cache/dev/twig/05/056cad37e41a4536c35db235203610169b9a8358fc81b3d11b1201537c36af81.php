@@ -22,38 +22,93 @@ class __TwigTemplate_86cd34c4c0aa7afca667b14f5c5821d2294618979abcdd4828081f880c1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_796b7532a683f660a36ef349cb0a8fba7311ebd3d3f50b3e057637d70b3b5fc3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_796b7532a683f660a36ef349cb0a8fba7311ebd3d3f50b3e057637d70b3b5fc3->enter($__internal_796b7532a683f660a36ef349cb0a8fba7311ebd3d3f50b3e057637d70b3b5fc3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle:Home:index.html.twig"));
+        $__internal_055def4158f093921bab1d3beacb9c3738a51389a4fb75ff0b03a2f96e71d1eb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_055def4158f093921bab1d3beacb9c3738a51389a4fb75ff0b03a2f96e71d1eb->enter($__internal_055def4158f093921bab1d3beacb9c3738a51389a4fb75ff0b03a2f96e71d1eb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle:Home:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_796b7532a683f660a36ef349cb0a8fba7311ebd3d3f50b3e057637d70b3b5fc3->leave($__internal_796b7532a683f660a36ef349cb0a8fba7311ebd3d3f50b3e057637d70b3b5fc3_prof);
+        $__internal_055def4158f093921bab1d3beacb9c3738a51389a4fb75ff0b03a2f96e71d1eb->leave($__internal_055def4158f093921bab1d3beacb9c3738a51389a4fb75ff0b03a2f96e71d1eb_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_2e382a3a24419b71ebabe02bd2bbe0357c4232b370e1c5dfedaa8ae64cbe3a1f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2e382a3a24419b71ebabe02bd2bbe0357c4232b370e1c5dfedaa8ae64cbe3a1f->enter($__internal_2e382a3a24419b71ebabe02bd2bbe0357c4232b370e1c5dfedaa8ae64cbe3a1f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_736fa1301161c5b27b70c21108922e8d6e742a2cc99f2a8455d3f2b1a15b5607 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_736fa1301161c5b27b70c21108922e8d6e742a2cc99f2a8455d3f2b1a15b5607->enter($__internal_736fa1301161c5b27b70c21108922e8d6e742a2cc99f2a8455d3f2b1a15b5607_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "DevLeaguesBundle:Home:index";
         
-        $__internal_2e382a3a24419b71ebabe02bd2bbe0357c4232b370e1c5dfedaa8ae64cbe3a1f->leave($__internal_2e382a3a24419b71ebabe02bd2bbe0357c4232b370e1c5dfedaa8ae64cbe3a1f_prof);
+        $__internal_736fa1301161c5b27b70c21108922e8d6e742a2cc99f2a8455d3f2b1a15b5607->leave($__internal_736fa1301161c5b27b70c21108922e8d6e742a2cc99f2a8455d3f2b1a15b5607_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_19d9c5447c1388bb442ae28d7d1affb74d17ad637397e7fcdef941c7cbc816d3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_19d9c5447c1388bb442ae28d7d1affb74d17ad637397e7fcdef941c7cbc816d3->enter($__internal_19d9c5447c1388bb442ae28d7d1affb74d17ad637397e7fcdef941c7cbc816d3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d70774abbb444d5982a5dbca3f9bbd23132b3b253fecf2f32a7ac360daa22dee = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d70774abbb444d5982a5dbca3f9bbd23132b3b253fecf2f32a7ac360daa22dee->enter($__internal_d70774abbb444d5982a5dbca3f9bbd23132b3b253fecf2f32a7ac360daa22dee_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<h1>Welcome to the Home:index page</h1>
+        echo "<h1>Hello World !</h1>
+<p>
+\tThis website is a social media for developers who wish to show their
+\tknowledge of IT. Futhermore, developers may create events to challenge their
+\tfriends. This will give rewards to all the involved developers, the
+\tchallengers as much as the organizers.
+</p>
+<p>
+\tYou may also create relationships to others devs to show the community your
+\tmentors and pupils as you progress in this huge familly of experts.
+</p>
+<p>
+\tWhy do this ?
+\tWell just because this could help you and you friends to show your IRL
+\texperiences of technologies over time, use your profile as a resume
+\tor just to get famous in the community.
+</p>
+<p>
+\tCreate events and challenge other devs to levelup, Create your league and
+\tchallenge other leagues. Get notorious and learn from senior developers on
+\tany tech.
+</p>
+<p>
+\tYour destiny awaits !
+</p>
+<h2>Rewards</h2>
+<p>
+\tThere is a vairety of posssible rewards such as bitcoins, money, notoriety,
+\texperience or gold.
+</p>
+<p>
+\tRewards are granted by participating to events created by you or others.
+\tCompanys may have big challenges for you with huge rewards, even if you
+\tdon't earn a medal.
+</p>
+<h2>Leagues</h2>
+<p>
+\tAfter a certain notoriety, you may create your very own league and grow
+\tyour social circle. This allows new privileges and gives you access to a
+\thole new kind of involvement.
+</p>
+<p>
+\tJoin a league to easely find masters of whatever tech you are learning.
+\tGet involved as much as you wish and earn extra group rewards.
+</p>
+<h2>Friendzone</h2>
+<p>
+\tDepending on your experience over certain technologies, you may find your
+\tmaster or become the master of someone. This involvment is of course
+\trewarded every time you ask for help or yourself help someone.
+</p>
+<h2>Companies</h2>
+<p>
+\tCompanies may signin to find their futur devs or create events to do the
+\tdevelopment they need.
+</p>
 ";
         
-        $__internal_19d9c5447c1388bb442ae28d7d1affb74d17ad637397e7fcdef941c7cbc816d3->leave($__internal_19d9c5447c1388bb442ae28d7d1affb74d17ad637397e7fcdef941c7cbc816d3_prof);
+        $__internal_d70774abbb444d5982a5dbca3f9bbd23132b3b253fecf2f32a7ac360daa22dee->leave($__internal_d70774abbb444d5982a5dbca3f9bbd23132b3b253fecf2f32a7ac360daa22dee_prof);
 
     }
 
@@ -87,7 +142,62 @@ class __TwigTemplate_86cd34c4c0aa7afca667b14f5c5821d2294618979abcdd4828081f880c1
 {% block title %}DevLeaguesBundle:Home:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Home:index page</h1>
+<h1>Hello World !</h1>
+<p>
+\tThis website is a social media for developers who wish to show their
+\tknowledge of IT. Futhermore, developers may create events to challenge their
+\tfriends. This will give rewards to all the involved developers, the
+\tchallengers as much as the organizers.
+</p>
+<p>
+\tYou may also create relationships to others devs to show the community your
+\tmentors and pupils as you progress in this huge familly of experts.
+</p>
+<p>
+\tWhy do this ?
+\tWell just because this could help you and you friends to show your IRL
+\texperiences of technologies over time, use your profile as a resume
+\tor just to get famous in the community.
+</p>
+<p>
+\tCreate events and challenge other devs to levelup, Create your league and
+\tchallenge other leagues. Get notorious and learn from senior developers on
+\tany tech.
+</p>
+<p>
+\tYour destiny awaits !
+</p>
+<h2>Rewards</h2>
+<p>
+\tThere is a vairety of posssible rewards such as bitcoins, money, notoriety,
+\texperience or gold.
+</p>
+<p>
+\tRewards are granted by participating to events created by you or others.
+\tCompanys may have big challenges for you with huge rewards, even if you
+\tdon't earn a medal.
+</p>
+<h2>Leagues</h2>
+<p>
+\tAfter a certain notoriety, you may create your very own league and grow
+\tyour social circle. This allows new privileges and gives you access to a
+\thole new kind of involvement.
+</p>
+<p>
+\tJoin a league to easely find masters of whatever tech you are learning.
+\tGet involved as much as you wish and earn extra group rewards.
+</p>
+<h2>Friendzone</h2>
+<p>
+\tDepending on your experience over certain technologies, you may find your
+\tmaster or become the master of someone. This involvment is of course
+\trewarded every time you ask for help or yourself help someone.
+</p>
+<h2>Companies</h2>
+<p>
+\tCompanies may signin to find their futur devs or create events to do the
+\tdevelopment they need.
+</p>
 {% endblock %}
 ", "DevLeaguesBundle:Home:index.html.twig", "/var/www/html/devleagues/github/src/DevLeaguesBundle/Resources/views/Home/index.html.twig");
     }

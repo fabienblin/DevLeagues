@@ -7,16 +7,20 @@ events:
     defaults: { _controller: DevLeaguesBundle:Event:index }
 
 new_event:
-    path:       event/new
+    path:       new_event
     defaults:   { _controller: DevLeaguesBundle:Event:new }
 
 show_event:
-    path:       event/{eventId}
+    path:       show_event/{eventName}
     defaults:   { _controller: DevLeaguesBundle:Event:show }
+
+user_show_events:
+    path:       profile/events
+    defaults:   { _controller: DevLeaguesBundle:Profile:showEvents }
 
 community:
     path:     community
-    defaults: { _controller: DevLeaguesBundle:Community:index }
+    defaults: { _controller: DevLeaguesBundle:Profile:index }
 
 about:
     path:     about
@@ -28,7 +32,19 @@ news:
 
 leagues:
     path:     leagues
-    defaults: { _controller: DevLeaguesBundle:Leagues:index }
+    defaults: { _controller: DevLeaguesBundle:League:index }
+
+show_league:
+    path:       show_league/{leagueName}
+    defaults:   { _controller: DevLeaguesBundle:League:show }
+
+user_show_leagues:
+    path:       profile/leagues
+    defaults:   { _controller: DevLeaguesBundle:Profile:showLeagues }
+
+new_league:
+    path:       new_league
+    defaults:   { _controller: DevLeaguesBundle:League:new }
 
 contact:
     path:     contact
@@ -37,3 +53,11 @@ contact:
 error:
     path:     error
     defaults: { _controller: DevLeaguesBundle:Error:index }
+
+user_show_friends:
+    path:     /friendzone
+    defaults: { _controller: DevLeaguesBundle:Profile:showfriends }
+
+user_show_profile:
+    path:     /profile/{userName}
+    defaults: { _controller: DevLeaguesBundle:Profile:showProfile }

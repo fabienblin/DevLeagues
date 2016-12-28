@@ -15,8 +15,8 @@ class __TwigTemplate_429e19f7c0c125b4f84a198c6f8e471222e540fa185447a97f59b2b5834
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_030aebfd2f53769f79da79755a8052048430979bb4453f4cbe74ed6802dfa023 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_030aebfd2f53769f79da79755a8052048430979bb4453f4cbe74ed6802dfa023->enter($__internal_030aebfd2f53769f79da79755a8052048430979bb4453f4cbe74ed6802dfa023_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle::navbar.html.twig"));
+        $__internal_e948032f201f71d324942ff540024a26cb619256fcd36bcae2b2274b03573e6e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e948032f201f71d324942ff540024a26cb619256fcd36bcae2b2274b03573e6e->enter($__internal_e948032f201f71d324942ff540024a26cb619256fcd36bcae2b2274b03573e6e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle::navbar.html.twig"));
 
         // line 1
         echo "<nav class=\"navbar navbar-inverse navbar-fixed-top\">
@@ -65,18 +65,20 @@ class __TwigTemplate_429e19f7c0c125b4f84a198c6f8e471222e540fa185447a97f59b2b5834
         echo "\">Contact</a></li>
 \t  </ul>
 \t  <form class=\"navbar-form navbar-left\">
-\t\t  <div class=\"form-group\">
-\t\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Search\">
+\t\t  <div class=\"input-group\">
+\t\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\">
+\t\t\t  <span class=\"input-group-btn\">
+\t\t\t\t  <button class=\"btn btn-default\" type=\"button\">Search</button>
+\t\t\t  </span>
 \t\t  </div>
-\t\t  <button type=\"submit\" class=\"btn btn-default\">Search</button>
 \t  </form>
 \t  <ul class=\"nav navbar-nav navbar-right\">
         <li><a href=\"";
-        // line 29
+        // line 31
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_security_login");
         echo "\">Login</a></li>
         <li><a href=\"";
-        // line 30
+        // line 32
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fos_user_registration_register");
         echo "\">Register</a></li>
       </ul>
@@ -85,7 +87,7 @@ class __TwigTemplate_429e19f7c0c125b4f84a198c6f8e471222e540fa185447a97f59b2b5834
 </nav>
 ";
         
-        $__internal_030aebfd2f53769f79da79755a8052048430979bb4453f4cbe74ed6802dfa023->leave($__internal_030aebfd2f53769f79da79755a8052048430979bb4453f4cbe74ed6802dfa023_prof);
+        $__internal_e948032f201f71d324942ff540024a26cb619256fcd36bcae2b2274b03573e6e->leave($__internal_e948032f201f71d324942ff540024a26cb619256fcd36bcae2b2274b03573e6e_prof);
 
     }
 
@@ -101,7 +103,7 @@ class __TwigTemplate_429e19f7c0c125b4f84a198c6f8e471222e540fa185447a97f59b2b5834
 
     public function getDebugInfo()
     {
-        return array (  80 => 30,  76 => 29,  64 => 20,  60 => 19,  56 => 18,  52 => 17,  48 => 16,  44 => 15,  40 => 14,  33 => 10,  22 => 1,);
+        return array (  82 => 32,  78 => 31,  64 => 20,  60 => 19,  56 => 18,  52 => 17,  48 => 16,  44 => 15,  40 => 14,  33 => 10,  22 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -136,10 +138,12 @@ class __TwigTemplate_429e19f7c0c125b4f84a198c6f8e471222e540fa185447a97f59b2b5834
 \t\t<li><a href=\"{{ path('contact') }}\">Contact</a></li>
 \t  </ul>
 \t  <form class=\"navbar-form navbar-left\">
-\t\t  <div class=\"form-group\">
-\t\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Search\">
+\t\t  <div class=\"input-group\">
+\t\t\t  <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\">
+\t\t\t  <span class=\"input-group-btn\">
+\t\t\t\t  <button class=\"btn btn-default\" type=\"button\">Search</button>
+\t\t\t  </span>
 \t\t  </div>
-\t\t  <button type=\"submit\" class=\"btn btn-default\">Search</button>
 \t  </form>
 \t  <ul class=\"nav navbar-nav navbar-right\">
         <li><a href=\"{{ path('fos_user_security_login') }}\">Login</a></li>

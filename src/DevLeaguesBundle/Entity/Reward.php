@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reward
 {
+	/**
+	 * earnable reward types
+	 */
+	const NAMES = array('BITCOIN', 'EURO', 'USD', 'XP', 'NOTORIETY', 'GOLD');
+
     /**
      * @var int
      *

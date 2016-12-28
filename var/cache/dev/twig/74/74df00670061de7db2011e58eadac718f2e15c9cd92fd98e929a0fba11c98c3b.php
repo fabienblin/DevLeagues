@@ -15,8 +15,8 @@ class __TwigTemplate_dbd48f9de23686960a09063d6a81dc5c9f038e74955ce37d339b11e9904
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1756d05c2572b0817f160602d5efb6b42b78cc5a590927b88601d24d8935dde4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_1756d05c2572b0817f160602d5efb6b42b78cc5a590927b88601d24d8935dde4->enter($__internal_1756d05c2572b0817f160602d5efb6b42b78cc5a590927b88601d24d8935dde4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle::sidebar.html.twig"));
+        $__internal_68ba9562bce5eb1a7e98a97eccec4fae215834217a988a5e0119e96974a132a3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_68ba9562bce5eb1a7e98a97eccec4fae215834217a988a5e0119e96974a132a3->enter($__internal_68ba9562bce5eb1a7e98a97eccec4fae215834217a988a5e0119e96974a132a3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "DevLeaguesBundle::sidebar.html.twig"));
 
         // line 1
         echo "<h3>My Account</h3>
@@ -31,21 +31,27 @@ class __TwigTemplate_dbd48f9de23686960a09063d6a81dc5c9f038e74955ce37d339b11e9904
 \t\t<a href=\"#\">Messages <span class=\"badge\">4</span></a>
 \t</li>
 \t<li role=\"presentation\">
-\t\t<a href=\"#\">Friendzone</a>
+\t\t<a href=\"";
+        // line 10
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_show_friends");
+        echo "\">Friendzone</a>
 \t</li>
 \t<li role=\"presentation\">
 \t\t<a href=\"";
         // line 13
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("new_event");
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_show_events");
         echo "\">Events</a>
 \t</li>
 \t<li role=\"presentation\">
-\t\t<a href=\"#\">Bla bla</a>
+\t\t<a href=\"";
+        // line 16
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("user_show_leagues");
+        echo "\">League</a>
 \t</li>
 </ul>
 ";
         
-        $__internal_1756d05c2572b0817f160602d5efb6b42b78cc5a590927b88601d24d8935dde4->leave($__internal_1756d05c2572b0817f160602d5efb6b42b78cc5a590927b88601d24d8935dde4_prof);
+        $__internal_68ba9562bce5eb1a7e98a97eccec4fae215834217a988a5e0119e96974a132a3->leave($__internal_68ba9562bce5eb1a7e98a97eccec4fae215834217a988a5e0119e96974a132a3_prof);
 
     }
 
@@ -61,7 +67,7 @@ class __TwigTemplate_dbd48f9de23686960a09063d6a81dc5c9f038e74955ce37d339b11e9904
 
     public function getDebugInfo()
     {
-        return array (  39 => 13,  27 => 4,  22 => 1,);
+        return array (  48 => 16,  42 => 13,  36 => 10,  27 => 4,  22 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -83,13 +89,13 @@ class __TwigTemplate_dbd48f9de23686960a09063d6a81dc5c9f038e74955ce37d339b11e9904
 \t\t<a href=\"#\">Messages <span class=\"badge\">4</span></a>
 \t</li>
 \t<li role=\"presentation\">
-\t\t<a href=\"#\">Friendzone</a>
+\t\t<a href=\"{{ path('user_show_friends') }}\">Friendzone</a>
 \t</li>
 \t<li role=\"presentation\">
-\t\t<a href=\"{{ path('new_event') }}\">Events</a>
+\t\t<a href=\"{{ path('user_show_events') }}\">Events</a>
 \t</li>
 \t<li role=\"presentation\">
-\t\t<a href=\"#\">Bla bla</a>
+\t\t<a href=\"{{ path('user_show_leagues') }}\">League</a>
 \t</li>
 </ul>
 ", "DevLeaguesBundle::sidebar.html.twig", "/var/www/html/devleagues/github/src/DevLeaguesBundle/Resources/views/sidebar.html.twig");

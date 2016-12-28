@@ -35,6 +35,13 @@ class Event
     private $name;
 
 	/**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+
+	/**
      * @var \DateTime $creationTimestamp
      *
      * @Gedmo\Timestampable(on="create")
@@ -265,5 +272,29 @@ class Event
     public function getTechnologies()
     {
         return $this->technologies;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Event
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

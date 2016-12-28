@@ -7,7 +7,14 @@ all rights reserved to Fabien Blin and associates
 Contact :
 fabienblin.fr
 
-Version 0.2 DevLeagues.com
+Version 0.3 DevLeagues.com
+
+Changelog 0.3 :
+	Created friend table
+	Added user to user relations (friend)
+	Starting user.add_friend event
+	Created more views for Event
+	Created mores view for User/Profile
 
 Changelog 0.2 :
   Created new Event form

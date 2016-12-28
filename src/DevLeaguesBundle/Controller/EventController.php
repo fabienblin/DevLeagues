@@ -13,7 +13,7 @@ use DevLeaguesBundle\Form\NewEventType;
 class EventController extends Controller
 {
 	/**
-	 * Returns all Events
+	 * Show all Events
 	 */
     public function indexAction()
     {
@@ -35,7 +35,6 @@ class EventController extends Controller
 	public function newAction(Request $request)
 	{
 		$event = new Event();
-		$em = $this->getDoctrine()->getManager();
 		$form = $this->createForm(NewEventType::class, $event);
 
 		$form->handleRequest($request);
@@ -47,26 +46,30 @@ class EventController extends Controller
 			$em->flush();
 
 			return $this->redirectToRoute('show_event',
-				array('eventName' => $event->getId()));
+				array('eventName' => $event->getName()));
 		}
+
 		return $this->render('DevLeaguesBundle:Event:new.html.twig', array(
 			'form' => $form->createView(),
 			)
 		);
 	}
 
-	public function showAction($eventId)
+	/**
+	 * Show Event by name
+	 */
+	public function showAction($eventName)
 	{
 		$event = $this->getDoctrine()
 		->getRepository('DevLeaguesBundle:Event')
-		->find($eventId);
+		->findByName($eventName);
 
 		if (!$event) {
 			throw $this->createNotFoundException('No event found');
 		}
 
 		return $this->render('DevLeaguesBundle:Event:show.html.twig', array(
-			'event' => $event,
+			'event' => $event[0],
 			)
 		);
 	}
