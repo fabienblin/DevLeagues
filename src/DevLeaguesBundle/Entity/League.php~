@@ -28,8 +28,10 @@ class League
      */
     private $name;
 
-	/**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="leagues")
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="users", type="array")
      */
     private $users;
 
@@ -67,42 +69,25 @@ class League
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add user
+     * Set users
      *
-     * @param \DevLeaguesBundle\Entity\User $user
+     * @param array $users
      *
      * @return League
      */
-    public function addUser(\DevLeaguesBundle\Entity\User $user)
+    public function setUsers($users)
     {
-        $this->users[] = $user;
+        $this->users = $users;
 
         return $this;
     }
 
     /**
-     * Remove user
-     *
-     * @param \DevLeaguesBundle\Entity\User $user
-     */
-    public function removeUser(\DevLeaguesBundle\Entity\User $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return array
      */
     public function getUsers()
     {

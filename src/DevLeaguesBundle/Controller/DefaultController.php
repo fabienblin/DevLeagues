@@ -2,12 +2,18 @@
 
 namespace DevLeaguesBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
-class HomeController extends Controller
+class DefaultController extends Controller
 {
-    public function indexAction()
+    /**
+     * 
+     */
+    public function indexAction(Request $request)
     {
-        return $this->render('DevLeaguesBundle:Home:index.html.twig');
+        return $this->render('DevLeaguesBundle:Default:index.html.twig', array());
     }
 }

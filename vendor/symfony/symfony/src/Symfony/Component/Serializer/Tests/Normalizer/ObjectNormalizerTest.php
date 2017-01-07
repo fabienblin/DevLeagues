@@ -159,6 +159,49 @@ class ObjectNormalizerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('bar', $obj->bar);
     }
 
+    public function testConstructorWithObjectTypeHintDenormalize()
+    {
+        $data = array(
+            'id' => 10,
+            'inner' => array(
+                'foo' => 'oof',
+                'bar' => 'rab',
+            ),
+        );
+
+        $normalizer = new ObjectNormalizer();
+        $serializer = new Serializer(array($normalizer));
+        $normalizer->setSerializer($serializer);
+
+        $obj = $normalizer->denormalize($data, DummyWithConstructorObject::class);
+        $this->assertInstanceOf(DummyWithConstructorObject::class, $obj);
+        $this->assertEquals(10, $obj->getId());
+        $this->assertInstanceOf(ObjectInner::class, $obj->getInner());
+        $this->assertEquals('oof', $obj->getInner()->foo);
+        $this->assertEquals('rab', $obj->getInner()->bar);
+    }
+
+    /**
+     * @expectedException \Symfony\Component\Serializer\Exception\RuntimeException
+     * @expectedExceptionMessage Could not determine the class of the parameter "unknown".
+     */
+    public function testConstructorWithUnknownObjectTypeHintDenormalize()
+    {
+        $data = array(
+            'id' => 10,
+            'unknown' => array(
+                'foo' => 'oof',
+                'bar' => 'rab',
+            ),
+        );
+
+        $normalizer = new ObjectNormalizer();
+        $serializer = new Serializer(array($normalizer));
+        $normalizer->setSerializer($serializer);
+
+        $normalizer->denormalize($data, DummyWithConstructorInexistingObject::class);
+    }
+
     public function testGroupsNormalize()
     {
         $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
@@ -818,5 +861,34 @@ class FormatAndContextAwareNormalizer extends ObjectNormalizer
         }
 
         return false;
+    }
+}
+
+class DummyWithConstructorObject
+{
+    private $id;
+    private $inner;
+
+    public function __construct($id, ObjectInner $inner)
+    {
+        $this->id = $id;
+        $this->inner = $inner;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getInner()
+    {
+        return $this->inner;
+    }
+}
+
+class DummyWithConstructorInexistingObject
+{
+    public function __construct($id, Unknown $unknown)
+    {
     }
 }

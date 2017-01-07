@@ -1,26 +1,4 @@
-{% extends "DevLeaguesBundle::base.html.twig" %}
-
+{% extends "DevLeaguesBundle:League:base.html.twig" %}
 {% block body %}
-
-<div class="row">
-	<div class="col-md-12">
-		<h1>Detailed league</h1>
-		<h2>{{ league.name }}</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Users</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					{% for user in league.users %}
-					<td>{{ user.username }}</td>
-					{% endfor %}
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
-
+<h1>Welcome to the League:show page</h1>
 {% endblock %}

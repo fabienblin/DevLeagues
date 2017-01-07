@@ -4,7 +4,6 @@ parameters:
 #    parameter_name: value
 
 services:
-    devleagues.form.registration:
-        class: DevLeaguesBundle\Form\RegistrationType
-        tags:
-            - { name: form.type, alias: devleagues_user_registration }
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
