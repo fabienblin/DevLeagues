@@ -4,12 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
+class ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85
 {
     public static $files = array (
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '8ac9dba77d5c65db2811440ee8265f5d' => __DIR__ . '/..' . '/sonata-project/block-bundle/Resources/stubs/symfony2.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        'ce89ac35a6c330c55f4710717db9ff78' => __DIR__ . '/..' . '/kriswallsmith/assetic/src/functions.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -28,9 +30,11 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
             'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\Security\\Acl\\' => 31,
             'Symfony\\Component\\' => 18,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
             'Symfony\\Bundle\\MonologBundle\\' => 29,
+            'Symfony\\Bundle\\AsseticBundle\\' => 29,
             'Symfony\\Bundle\\' => 15,
             'Symfony\\Bridge\\Twig\\' => 20,
             'Symfony\\Bridge\\Swiftmailer\\' => 27,
@@ -38,7 +42,12 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
-            'Stof\\DoctrineExtensionsBundle\\' => 30,
+            'Sonata\\DoctrineORMAdminBundle\\' => 30,
+            'Sonata\\CoreBundle\\' => 18,
+            'Sonata\\Cache\\Tests\\' => 19,
+            'Sonata\\Cache\\' => 13,
+            'Sonata\\BlockBundle\\' => 19,
+            'Sonata\\AdminBundle\\' => 19,
             'Sensio\\Bundle\\GeneratorBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sensio\\Bundle\\DistributionBundle\\' => 33,
@@ -52,13 +61,18 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
         array (
             'Monolog\\' => 8,
         ),
+        'K' => 
+        array (
+            'Knp\\Menu\\' => 9,
+            'Knp\\Bundle\\MenuBundle\\' => 22,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
         ),
-        'F' => 
+        'E' => 
         array (
-            'FOS\\UserBundle\\' => 15,
+            'Exporter\\' => 9,
         ),
         'D' => 
         array (
@@ -67,6 +81,14 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
             'Doctrine\\Common\\' => 16,
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
+        ),
+        'C' => 
+        array (
+            'Cocur\\Slugify\\' => 14,
+        ),
+        'A' => 
+        array (
+            'Avanzu\\AdminThemeBundle\\' => 24,
         ),
     );
 
@@ -91,6 +113,10 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Symfony\\Component\\Security\\Acl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/security-acl',
+        ),
         'Symfony\\Component\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Component',
@@ -102,6 +128,10 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
         'Symfony\\Bundle\\MonologBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/monolog-bundle',
+        ),
+        'Symfony\\Bundle\\AsseticBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/assetic-bundle',
         ),
         'Symfony\\Bundle\\' => 
         array (
@@ -131,9 +161,29 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Doctrine',
         ),
-        'Stof\\DoctrineExtensionsBundle\\' => 
+        'Sonata\\DoctrineORMAdminBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/stof/doctrine-extensions-bundle',
+            0 => __DIR__ . '/..' . '/sonata-project/doctrine-orm-admin-bundle',
+        ),
+        'Sonata\\CoreBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/core-bundle',
+        ),
+        'Sonata\\Cache\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/cache/test',
+        ),
+        'Sonata\\Cache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/cache/lib',
+        ),
+        'Sonata\\BlockBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/block-bundle',
+        ),
+        'Sonata\\AdminBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/admin-bundle',
         ),
         'Sensio\\Bundle\\GeneratorBundle\\' => 
         array (
@@ -159,13 +209,21 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Knp\\Menu\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-menu/src/Knp/Menu',
+        ),
+        'Knp\\Bundle\\MenuBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
         ),
-        'FOS\\UserBundle\\' => 
+        'Exporter\\' => 
         array (
-            0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+            0 => __DIR__ . '/..' . '/sonata-project/exporter/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -187,6 +245,14 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
         ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
+        ),
+        'Avanzu\\AdminThemeBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/avanzu/admin-theme-bundle',
+        ),
     );
 
     public static $fallbackDirsPsr4 = array (
@@ -196,6 +262,10 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
     public static $prefixesPsr0 = array (
         'T' => 
         array (
+            'Twig_Extensions_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/extensions/lib',
+            ),
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
@@ -206,13 +276,6 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
             'SensioLabs\\Security' => 
             array (
                 0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
-            ),
-        ),
-        'G' => 
-        array (
-            'Gedmo\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/lib',
             ),
         ),
         'D' => 
@@ -242,11 +305,11 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
                 0 => __DIR__ . '/..' . '/doctrine/annotations/lib',
             ),
         ),
-        'B' => 
+        'A' => 
         array (
-            'Behat\\Transliterator' => 
+            'Assetic' => 
             array (
-                0 => __DIR__ . '/..' . '/behat/transliterator/src',
+                0 => __DIR__ . '/..' . '/kriswallsmith/assetic/src',
             ),
         ),
     );
@@ -270,11 +333,11 @@ class ComposerStaticInitbdff5614a5040c9bc96440c34031e35c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbdff5614a5040c9bc96440c34031e35c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbdff5614a5040c9bc96440c34031e35c::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitbdff5614a5040c9bc96440c34031e35c::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitbdff5614a5040c9bc96440c34031e35c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitbdff5614a5040c9bc96440c34031e35c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -12,11 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reward
 {
-	/**
-	 * earnable reward types
-	 */
-	const NAMES = array('BITCOIN', 'EURO', 'USD', 'XP', 'NOTORIETY', 'GOLD');
-
     /**
      * @var int
      *
@@ -29,7 +24,7 @@ class Reward
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
@@ -40,10 +35,13 @@ class Reward
      */
     private $value;
 
-	/**
-     * @ORM\ManyToMany(targetEntity="Event", mappedBy="rewards")
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="challenges", type="array")
      */
-    private $events;
+    private $challenges;
+
 
     /**
      * Get id
@@ -82,7 +80,7 @@ class Reward
     /**
      * Set value
      *
-     * @param integer $value
+     * @param string $value
      *
      * @return Reward
      */
@@ -96,55 +94,58 @@ class Reward
     /**
      * Get value
      *
-     * @return int
+     * @return string
      */
     public function getValue()
     {
         return $this->value;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add event
+     * Set event
      *
-     * @param \DevLeaguesBundle\Entity\User $event
+     * @param string $event
      *
      * @return Reward
      */
-    public function addEvent(\DevLeaguesBundle\Entity\User $event)
+    public function setEvent($event)
     {
-        $this->events[] = $event;
+        $this->event = $event;
 
         return $this;
     }
 
     /**
-     * Remove event
+     * Get event
      *
-     * @param \DevLeaguesBundle\Entity\User $event
+     * @return string
      */
-    public function removeEvent(\DevLeaguesBundle\Entity\User $event)
+    public function getEvent()
     {
-        $this->events->removeElement($event);
+        return $this->event;
     }
 
     /**
-     * Get events
+     * Set challenges
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param array $challenges
+     *
+     * @return Reward
      */
-    public function getEvents()
+    public function setChallenges($challenges)
     {
-        return $this->events;
+        $this->challenges = $challenges;
+
+        return $this;
     }
 
-	public function __toString() {
-		return $this->name;
-	}
+    /**
+     * Get challenges
+     *
+     * @return array
+     */
+    public function getChallenges()
+    {
+        return $this->challenges;
+    }
 }

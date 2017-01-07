@@ -3,63 +3,68 @@
 namespace DevLeaguesBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use DevLeaguesBundle\Entity\League;
-use DevLeaguesBundle\Form\NewLeagueType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class LeagueController extends Controller
 {
-	public function indexAction()
-	{
-		$leagues = $this->getDoctrine()
-		->getRepository('DevLeaguesBundle:League')
-		->findAll();
+    /**
+     * @Route("/league", name="league")
+     */
+    public function indexAction()
+    {
+        return $this->render('DevLeaguesBundle:League:index.html.twig', array(
+            // ...
+        ));
+    }
 
-		if (!$leagues) {
-			$this->createNotFoundException('No leagues found.');
-		}
+    /**
+     * @Route("/league/{leagueId}", name="show_league")
+     */
+    public function showAction()
+    {
+        return $this->render('DevLeaguesBundle:League:show.html.twig', array(
+            // ...
+        ));
+    }
 
-		return $this->render('DevLeaguesBundle:League:index.html.twig', array(
-			'leagues' => $leagues,
-		));
-	}
+    /**
+     * @Route("/leagues", name="show_leagues")
+     */
+    public function showReducedAction()
+    {
+        return $this->render('DevLeaguesBundle:League:show_reduced.html.twig', array(
+            // ...
+        ));
+    }
 
-	public function newAction(Request $request)
-	{
-		$league = new League();
-		$form = $this->createForm(NewLeagueType::class, $league);
+    /**
+     * @Route("/league/new", name="new_league")
+     */
+    public function newAction()
+    {
+        return $this->render('DevLeaguesBundle:League:new.html.twig', array(
+            // ...
+        ));
+    }
 
-		$form->handleRequest($request);
+    /**
+     * @Route("/league/edit/{leagueId}", name="edit_league")
+     */
+    public function editAction()
+    {
+        return $this->render('DevLeaguesBundle:League:edit.html.twig', array(
+            // ...
+        ));
+    }
 
-		if ($form->isSubmitted() && $form->isValid()) {
-			$league = $form->getData();
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($league);
-			$em->flush();
+    /**
+     * @Route("/league/remove/{leagueId}", name="remove_league")
+     */
+    public function removeAction()
+    {
+        return $this->render('DevLeaguesBundle:League:remove.html.twig', array(
+            // ...
+        ));
+    }
 
-			return $this->redirectToRoute('show_league',
-				array('leagueName' => $league->getName()));
-		}
-
-		return $this->render('DevLeaguesBundle:League:new.html.twig', array(
-			'form' => $form->createView(),
-			)
-		);
-	}
-
-	public function showAction($leagueName)
-	{
-		$league = $this->getDoctrine()
-		->getRepository('DevLeaguesBundle:League')
-		->findByName($leagueName);
-
-		if (!$league) {
-			throw $this->createNotFoundException('No event found');
-		}
-
-		return $this->render('DevLeaguesBundle:League:show.html.twig', array(
-			'league' => $league[0],
-			)
-		);
-	}
 }

@@ -10,7 +10,7 @@ class AboutControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', 'about');
+        $crawler = $client->request('GET', '/about');
     }
 
 }

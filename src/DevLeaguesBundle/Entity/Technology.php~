@@ -28,15 +28,20 @@ class Technology
      */
     private $name;
 
-	/**
-     * @ORM\ManyToMany(targetEntity="User", mappedBy="technologies")
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="users", type="string", length=255)
      */
     private $users;
 
-	/**
-	 * @ORM\ManyToMany(targetEntity="Event", mappedBy="technologies")
-	 */
-	private $events;
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="challenges", type="array")
+     */
+    private $challenges;
+
 
     /**
      * Get id
@@ -71,42 +76,25 @@ class Technology
     {
         return $this->name;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add user
+     * Set users
      *
-     * @param \DevLeaguesBundle\Entity\User $user
+     * @param string $users
      *
      * @return Technology
      */
-    public function addUser(\DevLeaguesBundle\Entity\User $user)
+    public function setUsers($users)
     {
-        $this->users[] = $user;
+        $this->users = $users;
 
         return $this;
     }
 
     /**
-     * Remove user
-     *
-     * @param \DevLeaguesBundle\Entity\User $user
-     */
-    public function removeUser(\DevLeaguesBundle\Entity\User $user)
-    {
-        $this->users->removeElement($user);
-    }
-
-    /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return string
      */
     public function getUsers()
     {
@@ -114,36 +102,26 @@ class Technology
     }
 
     /**
-     * Add event
+     * Set challenges
      *
-     * @param \DevLeaguesBundle\Entity\Event $event
+     * @param array $challenges
      *
      * @return Technology
      */
-    public function addEvent(\DevLeaguesBundle\Entity\Event $event)
+    public function setChallenges($challenges)
     {
-        $this->events[] = $event;
+        $this->challenges = $challenges;
 
         return $this;
     }
 
     /**
-     * Remove event
+     * Get challenges
      *
-     * @param \DevLeaguesBundle\Entity\Event $event
+     * @return array
      */
-    public function removeEvent(\DevLeaguesBundle\Entity\Event $event)
+    public function getChallenges()
     {
-        $this->events->removeElement($event);
-    }
-
-    /**
-     * Get events
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEvents()
-    {
-        return $this->events;
+        return $this->challenges;
     }
 }
