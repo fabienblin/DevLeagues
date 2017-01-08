@@ -42,6 +42,7 @@ class ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Sonata\\EasyExtendsBundle\\' => 25,
             'Sonata\\DoctrineORMAdminBundle\\' => 30,
             'Sonata\\CoreBundle\\' => 18,
             'Sonata\\Cache\\Tests\\' => 19,
@@ -160,6 +161,10 @@ class ComposerStaticInitace9d07c26a76bcd0b231966ab0e8c85
         'Symfony\\Bridge\\Doctrine\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Doctrine',
+        ),
+        'Sonata\\EasyExtendsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/easy-extends-bundle',
         ),
         'Sonata\\DoctrineORMAdminBundle\\' => 
         array (

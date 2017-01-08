@@ -23,6 +23,7 @@ return array(
     'Symfony\\Bridge\\PhpUnit\\' => array($vendorDir . '/symfony/phpunit-bridge'),
     'Symfony\\Bridge\\Monolog\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Monolog'),
     'Symfony\\Bridge\\Doctrine\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Doctrine'),
+    'Sonata\\EasyExtendsBundle\\' => array($vendorDir . '/sonata-project/easy-extends-bundle'),
     'Sonata\\DoctrineORMAdminBundle\\' => array($vendorDir . '/sonata-project/doctrine-orm-admin-bundle'),
     'Sonata\\CoreBundle\\' => array($vendorDir . '/sonata-project/core-bundle'),
     'Sonata\\Cache\\Tests\\' => array($vendorDir . '/sonata-project/cache/test'),
