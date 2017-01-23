@@ -6,143 +6,125 @@
 <!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{% block title %}Avanzu Admin!{% endblock %}</title>
+	<meta charset="utf-8">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{% block title %}Avanzu Admin!{% endblock %}</title>
 
-    {# -------------------------------------------------------------------------------------------------- STYLESHEETS #}
-    {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('bundles/avanzuadmintheme/static/'~ app.environment ~'/styles/admin-lte-all.css') }}" />
-        <link href="{{ asset('bundles/devleagues/css/main.css') }}" rel="stylesheet">
-    {% endblock %}
-
-
-	    <!-- Custom styles for this template -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+	{# -------------------------------------------------------------------------------------------------- STYLESHEETS #}
+	{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('bundles/avanzuadmintheme/static/'~ app.environment ~'/styles/admin-lte-all.css') }}" />
+	<link href="{{ asset('bundles/devleagues/css/main.css') }}" rel="stylesheet">
+{% endblock %}
 
 
-    {# --------------------------------------------------------------------------------------------- JAVASCRIPTS_HEAD #}
-    {%  block javascripts_head %}
-        <script type="text/javascript" src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/modernizr.js') }}"></script>
-        <!--[if lt IE 9]>
+<!-- Custom styles for this template -->
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-        <![endif]-->
 
-    {% endblock %}
+{# --------------------------------------------------------------------------------------------- JAVASCRIPTS_HEAD #}
+{%  block javascripts_head %}
+<script type="text/javascript" src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/modernizr.js') }}"></script>
+<!--[if lt IE 9]>
+
+<![endif]-->
+
+{% endblock %}
 
 </head>
 <body class="{{ admin_skin|default('skin-blue')}}">
-    <div class="wrapper">
+	<div class="wrapper">
 
 
-    {% block avanzu_admin_header %}
-        <header class="main-header">
-            {% block avanzu_logo %}
-                <a href="#" class="logo">
-                    <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                    {{ block('title') }}
-                </a>
-            {% endblock %}
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-                            {% block avanzu_navbar %}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:messages')) }}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:notifications')) }}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:tasks')) }}
-                                {{ render(controller('AvanzuAdminThemeBundle:Navbar:user')) }}
-                            {% endblock %}
-                        </ul>
-                    </div>
+		{% block avanzu_admin_header %}
+		<header class="main-header">
+			{% block avanzu_logo %}
+			<a href="#" class="logo">
+				<!-- Add the class icon to your logo image or logo icon to add the margining -->
+				{{ block('title') }}
+			</a>
+			{% endblock %}
+			<!-- Header Navbar: style can be found in header.less -->
+			<nav class="navbar navbar-static-top">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+				</a>
+				<div id="DL_top-bar" class="navbar-custom-menu">
+				{% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+					<ul class="nav navbar-nav">
+						{% block avanzu_navbar %}
+						{{ render(controller('AvanzuAdminThemeBundle:Navbar:messages')) }}
+						{{ render(controller('AvanzuAdminThemeBundle:Navbar:notifications')) }}
+						{{ render(controller('AvanzuAdminThemeBundle:Navbar:tasks')) }}
+						{{ render(controller('AvanzuAdminThemeBundle:Navbar:user')) }}
+						{% endblock %}
+					</ul>
 				{% else %}
-					<div class="navbar-custom-menu">
-						<ul class="nav navbar-nav">
-							<li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-							<li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
-						</ul>
-					</div>
-                {% endif %}
-            </nav>
-          </header>
+					<ul class="nav navbar-nav">
+						<li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+						<li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+					</ul>
+				{% endif %}
+				</div>
+			</nav>
+		</header>
 
-    {% endblock %}
+	{% endblock %}
 
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar sidebar-offcanvas">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                {% block avanzu_sidebar %}
-                    {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
-                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:userPanel')) }}
-                        {{ render(controller('AvanzuAdminThemeBundle:Sidebar:searchForm')) }}
-                    {% endif %}
-                    {{ render(controller('AvanzuAdminThemeBundle:Sidebar:menu', {'request':app.request})) }}
-                {% endblock %}
-            </section>
-            <!-- /.sidebar -->
-        </aside>
+	<!-- Left side column. contains the logo and sidebar -->
+	<aside class="main-sidebar sidebar-offcanvas">
+		<!-- sidebar: style can be found in sidebar.less -->
+		<section class="sidebar">
+			{% block avanzu_sidebar %}
+				{% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+					{{ render(controller('AvanzuAdminThemeBundle:Sidebar:userPanel')) }}
+					{{ render(controller('AvanzuAdminThemeBundle:Sidebar:searchForm')) }}
+				{% endif %}
+				{{ render(controller('AvanzuAdminThemeBundle:Sidebar:menu', {'request':app.request})) }}
+			{% endblock %}
+		</section>
+		<!-- /.sidebar -->
+	</aside>
 
-        <!-- Right side column. Contains the navbar and content of the page -->
-        <div class="content-wrapper">
-            <nav class="navbar DL_second_navbar">
-              <div class="container-fluid">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="navbar-custom-menu">
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path("home") }}">Home</a></li>
-                    <li><a href="{{ path("about") }}">About</a></li>
-                    <li><a href="{{ path("news") }}">News</a></li>
-                    <li><a href="{{ path("community") }}">Community</a></li>
-                    <li><a href="{{ path("challenge") }}">Challenges</a></li>
-                    <li><a href="{{ path("league") }}">Leagues</a></li>
-                    <li><a href="{{ path("contact") }}">Contact</a></li>
-                  </ul>
-                </div><!-- /.navbar-collapse -->
-              </div><!-- /.container-fluid -->
-            </nav>
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <h1>
-                    {% block page_title %}Blank page{% endblock %}
-                    <small>{% block page_subtitle %}Control panel{% endblock %}</small>
-                </h1>
-                {% block avanzu_breadcrumb %}
-                    {{ render(controller('AvanzuAdminThemeBundle:Breadcrumb:breadcrumb', {'request':app.request, 'title' : block('page_title')})) }}
-                {% endblock %}
-            </section>
+	<!-- Right side column. Contains the navbar and content of the page -->
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				{% block page_title %}Blank page{% endblock %}
+				<small>{% block page_subtitle %}Control panel{% endblock %}</small>
+			</h1>
+			{% block avanzu_breadcrumb %}
+			{{ render(controller('AvanzuAdminThemeBundle:Breadcrumb:breadcrumb', {'request':app.request, 'title' : block('page_title')})) }}
+			{% endblock %}
+		</section>
 
-            <!-- Main content -->
-            <section class="content">
-                {% block page_content %}{% endblock %}
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
+		<!-- Main content -->
+		<section class="content">
+			{% block page_content %}{% endblock %}
+		</section>
+		<!-- /.content -->
+	</div>
+	<!-- /.content-wrapper -->
 
-    {% block avanzu_admin_footer %}
-        <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-                <b>Version</b> 0.1
-            </div>
-            <strong>Copyright &copy; 2016-2017 DevLeagues.com</a>.</strong> All rights reserved.
-        </footer>
-    {% endblock %}
+	{% block avanzu_admin_footer %}
+	<footer class="main-footer">
+		<div class="pull-right hidden-xs">
+			<b>Version</b> 0.1
+		</div>
+		<strong>Copyright &copy; 2016-2017 DevLeagues.com</a>.</strong> All rights reserved.
+	</footer>
+{% endblock %}
 
-    </div>
+</div>
 <!-- ./wrapper -->
 
 {# ------------------------------------------------------------------------------------------------------ JAVASCRIPTS #}
 {% block javascripts %}
 
-    <script src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/admin-lte-all.js') }}"></script>
+<script src="{{ asset('bundles/avanzuadmintheme/static/'~app.environment~'/scripts/admin-lte-all.js') }}"></script>
 
 {% endblock %}
 

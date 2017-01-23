@@ -3,6 +3,8 @@
 namespace DevLeaguesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use DevLeaguesBundle\Entity\User;
 
 /**
  * Challenge
@@ -50,26 +52,32 @@ class Challenge
     private $endTimestamp;
 
     /**
-     * @var array
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="technology", type="array")
+     * @ORM\ManyToMany(targetEntity="Technology", inversedBy="challenges")
      */
-    private $technology;
+    private $technologies;
 
     /**
-     * @var array
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="users", type="array")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="challenges")
      */
     private $users;
 
     /**
-     * @var array
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="rewards", type="array")
+     * @ORM\OneToMany(targetEntity="Reward", mappedBy="challenges")
      */
     private $rewards;
 
+	public function __construct()
+	{
+		$this->creationTimestamp= new \DateTime();
+		$this->technologies		= new ArrayCollection();
+		$this->users			= new ArrayCollection();
+	}
 
     /**
      * Get id
@@ -180,7 +188,7 @@ class Challenge
     /**
      * Set technology
      *
-     * @param array $technology
+     * @param ArrayCollection $technology
      *
      * @return Challenge
      */
@@ -194,7 +202,7 @@ class Challenge
     /**
      * Get technology
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getTechnology()
     {
@@ -204,7 +212,7 @@ class Challenge
     /**
      * Set users
      *
-     * @param array $users
+     * @param ArrayCollection $users
      *
      * @return Challenge
      */
@@ -218,17 +226,49 @@ class Challenge
     /**
      * Get users
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getUsers()
     {
         return $this->users;
     }
 
+	/**
+     * Add user
+     *
+	 * @param User $user
+	 *
+     * @return Challenge
+     */
+    public function addUser(User $user)
+    {
+		if (!$this->getUsers()->contains($user)) {
+			$this->getUsers()->add($user);
+		}
+
+        return $this;
+    }
+
+	/**
+     * Remove user
+     *
+	 * @param User $user
+	 *
+     * @return Challenge
+     */
+    public function removeUser(User $user)
+    {
+		if ($this->getUsers()->contains($user)) {
+			$this->getUsers()->removeElement($user);
+		}
+
+        return $this;
+    }
+
     /**
      * Set rewards
      *
-     * @param array $rewards
+     * @param ArrayCollection $rewards
      *
      * @return Challenge
      */
@@ -242,7 +282,7 @@ class Challenge
     /**
      * Get rewards
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getRewards()
     {

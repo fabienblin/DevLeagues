@@ -3,6 +3,7 @@
 namespace DevLeaguesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * League
@@ -29,9 +30,9 @@ class League
     private $name;
 
     /**
-     * @var array
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="users", type="array")
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="leagues")
      */
     private $users;
 
@@ -73,7 +74,7 @@ class League
     /**
      * Set users
      *
-     * @param array $users
+     * @param ArrayCollection $users
      *
      * @return League
      */
@@ -87,7 +88,7 @@ class League
     /**
      * Get users
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getUsers()
     {

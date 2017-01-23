@@ -64,10 +64,10 @@ class Friend extends \DevLeaguesBundle\Entity\Friend implements \Doctrine\ORM\Pr
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'relation', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'userId'];
+            return ['__isInitialized__', 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'userA', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'userB', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'relation'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'relation', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'userId'];
+        return ['__isInitialized__', 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'userA', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'userB', '' . "\0" . 'DevLeaguesBundle\\Entity\\Friend' . "\0" . 'relation'];
     }
 
     /**

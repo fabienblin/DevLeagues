@@ -1,8 +1,31 @@
-{% extends "DevLeaguesBundle:User:index.html.twig" %}
+{% extends "DevLeaguesBundle::base.html.twig" %}
 
-{% block page_title %}EMPTY Page{% endblock %}
-{% block page_subtitle %}This is a temporary EMPTY page of DevLeagues.com{% endblock %}
+{% import "DevLeaguesBundle::macros.html.twig" as dl_macro %}
 
-{% block body %}
-<h1>Welcome to the User:showReduced page</h1>
+{% block page_title %}Friendzone{% endblock %}
+{% block page_subtitle %}whatever{% endblock %}
+
+{% block page_content %}
+<div class="row">
+	{% for user in users %}
+	<div class="col-lg-6">
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-lg-8">
+						<a href="{{ path('show_user',{userId: user.id}) }}"><h3>{{user.username}}</h3></a>
+
+						<p>stats</p>
+					</div>
+					<div class="col-lg-4">
+						<img src=""
+						alt="avatar"
+						class="img-responsive img-circle"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
 {% endblock %}

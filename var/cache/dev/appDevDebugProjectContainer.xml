@@ -42,6 +42,19 @@
     <parameter key="mailer_user">null</parameter>
     <parameter key="mailer_password">null</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
+    <parameter key="avanzu_admin_theme.navbar_user_listener.class">DevLeaguesBundle\EventListener\Avanzu\NavbarShowUserListener</parameter>
+    <parameter key="avanzu_admin_theme.navbar_task_listener.class">DevLeaguesBundle\EventListener\Avanzu\NavbarTaskListListener</parameter>
+    <parameter key="avanzu_admin_theme.navbar_notify_listener.class">DevLeaguesBundle\EventListener\Avanzu\NavbarNotificationListListener</parameter>
+    <parameter key="avanzu_admin_theme.navbar_msg_listener.class">DevLeaguesBundle\EventListener\Avanzu\NavbarMessageListListener</parameter>
+    <parameter key="avanzu_admin_theme.setup_menu_listener.class">DevLeaguesBundle\EventListener\Avanzu\SidebarSetupMenuListener</parameter>
+    <parameter key="avanzu_admin_theme.exception_controller.class">Avanzu\AdminThemeBundle\Controller\ExceptionController</parameter>
+    <parameter key="twig.controller.exception.class">Avanzu\AdminThemeBundle\Controller\ExceptionController</parameter>
+    <parameter key="avanzu_admin_theme.widget_extension.class">Avanzu\AdminThemeBundle\Twig\WidgetExtension</parameter>
+    <parameter key="avanzu_admin_theme.theme_manager.class">Avanzu\AdminThemeBundle\Theme\ThemeManager</parameter>
+    <parameter key="avanzu_admin_theme.setup_theme_listener.class">Avanzu\AdminThemeBundle\EventListener\SetupThemeListener</parameter>
+    <parameter key="avanzu_admin_theme.dependency_resolver.class"></parameter>
+    <parameter key="avanzu_admin_theme.css_base"></parameter>
+    <parameter key="avanzu_admin_theme.lte_admin"></parameter>
     <parameter key="locale">en</parameter>
     <parameter key="fragment.renderer.hinclude.global_template">null</parameter>
     <parameter key="fragment.path">/_fragment</parameter>
@@ -282,19 +295,6 @@
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
     <parameter key="avanzu_admin_theme.bower_bin">/home/ubuntu/.nvm/versions/node/v4.6.1/lib/node_modules/bower/bin/bower</parameter>
-    <parameter key="avanzu_admin_theme.navbar_user_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarShowUserDemoListener</parameter>
-    <parameter key="avanzu_admin_theme.navbar_task_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarTaskListDemoListener</parameter>
-    <parameter key="avanzu_admin_theme.navbar_notify_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarNotificationListDemoListener</parameter>
-    <parameter key="avanzu_admin_theme.navbar_msg_listener.class">Avanzu\AdminThemeBundle\EventListener\NavbarMessageListDemoListener</parameter>
-    <parameter key="avanzu_admin_theme.setup_menu_listener.class">Avanzu\AdminThemeBundle\EventListener\SidebarSetupMenuDemoListener</parameter>
-    <parameter key="avanzu_admin_theme.exception_controller.class">Avanzu\AdminThemeBundle\Controller\ExceptionController</parameter>
-    <parameter key="twig.controller.exception.class">Avanzu\AdminThemeBundle\Controller\ExceptionController</parameter>
-    <parameter key="avanzu_admin_theme.widget_extension.class">Avanzu\AdminThemeBundle\Twig\WidgetExtension</parameter>
-    <parameter key="avanzu_admin_theme.theme_manager.class">Avanzu\AdminThemeBundle\Theme\ThemeManager</parameter>
-    <parameter key="avanzu_admin_theme.setup_theme_listener.class">Avanzu\AdminThemeBundle\EventListener\SetupThemeListener</parameter>
-    <parameter key="avanzu_admin_theme.dependency_resolver.class"></parameter>
-    <parameter key="avanzu_admin_theme.css_base"></parameter>
-    <parameter key="avanzu_admin_theme.lte_admin"></parameter>
     <parameter key="assetic.asset_factory.class">Symfony\Bundle\AsseticBundle\Factory\AssetFactory</parameter>
     <parameter key="assetic.asset_manager.class">Assetic\Factory\LazyAssetManager</parameter>
     <parameter key="assetic.asset_manager_cache_warmer.class">Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer</parameter>
@@ -714,6 +714,48 @@
     </parameter>
   </parameters>
   <services>
+    <service id="avanzu_admin_theme.exception_controller" class="Avanzu\AdminThemeBundle\Controller\ExceptionController">
+      <argument type="service" id="twig"/>
+      <argument>true</argument>
+    </service>
+    <service id="avanzu_admin_theme.widget_extension.class" class="Avanzu\AdminThemeBundle\Twig\WidgetExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="avanzu_admin_theme.theme_manager" class="Avanzu\AdminThemeBundle\Theme\ThemeManager">
+      <argument type="service" id="service_container"/>
+      <argument></argument>
+    </service>
+    <service id="avanzu_admin_theme.setup_theme_listener" class="Avanzu\AdminThemeBundle\EventListener\SetupThemeListener">
+      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
+      <argument type="service" id="avanzu_admin_theme.theme_manager"/>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="avanzu_admin_theme.context_listener" class="Avanzu\AdminThemeBundle\EventListener\ContextListener">
+      <tag name="kernel.event_listener" event="kernel.request" method="onRequest"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="avanzu_admin_theme.navbar_user_listener" class="DevLeaguesBundle\EventListener\Avanzu\NavbarShowUserListener">
+      <tag name="kernel.event_listener" event="theme.navbar_user" method="onShowUser"/>
+      <tag name="kernel.event_listener" event="theme.sidebar_user" method="onShowUser"/>
+      <argument type="service" id="service_container"/>
+      <argument>security.token_storage</argument>
+    </service>
+    <service id="avanzu_admin_theme.navbar_task_listener" class="DevLeaguesBundle\EventListener\Avanzu\NavbarTaskListListener">
+      <tag name="kernel.event_listener" event="theme.tasks" method="onListTasks"/>
+    </service>
+    <service id="avanzu_admin_theme.navbar_notify_listener" class="DevLeaguesBundle\EventListener\Avanzu\NavbarNotificationListListener">
+      <tag name="kernel.event_listener" event="theme.notifications" method="onListNotifications"/>
+    </service>
+    <service id="avanzu_admin_theme.navbar_msg_listener" class="DevLeaguesBundle\EventListener\Avanzu\NavbarMessageListListener">
+      <tag name="kernel.event_listener" event="theme.messages" method="onListMessages"/>
+    </service>
+    <service id="avanzu_admin_theme.setup_menu_listener" class="DevLeaguesBundle\EventListener\Avanzu\SidebarSetupMenuListener">
+      <tag name="kernel.event_listener" event="theme.sidebar_setup_menu" method="onSetupMenu"/>
+      <tag name="kernel.event_listener" event="theme.breadcrumb" method="onSetupMenu"/>
+      <argument type="service" id="service_container"/>
+      <argument>security.token_storage</argument>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -826,7 +868,7 @@
                 <tag name="cache.pool" clearer="cache.default_clearer"/>
                 <argument>cQY-a4boY2</argument>
                 <argument>0</argument>
-                <argument>vEj20EFpZYiUCXQxVYZNRY</argument>
+                <argument>gBeCaaPMlplH+3TQt1hhnU</argument>
                 <argument>/home/webmaster/www/public_html/DevLeagues/var/cache/dev/pools</argument>
                 <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
                 <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -949,7 +991,7 @@
           <tag name="monolog.logger" channel="cache"/>
           <argument>zIJW9NjWCg</argument>
           <argument>null</argument>
-          <argument>vEj20EFpZYiUCXQxVYZNRY</argument>
+          <argument>gBeCaaPMlplH+3TQt1hhnU</argument>
           <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
           <factory class="Symfony\Component\PropertyAccess\PropertyAccessor" method="createCache"/>
         </service>
@@ -970,7 +1012,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>jKliObefJv</argument>
       <argument>0</argument>
-      <argument>vEj20EFpZYiUCXQxVYZNRY</argument>
+      <argument>gBeCaaPMlplH+3TQt1hhnU</argument>
       <argument>/home/webmaster/www/public_html/DevLeagues/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -980,7 +1022,7 @@
       <tag name="cache.pool" clearer="cache.default_clearer"/>
       <argument>T2vxzb9t9W</argument>
       <argument>0</argument>
-      <argument>vEj20EFpZYiUCXQxVYZNRY</argument>
+      <argument>gBeCaaPMlplH+3TQt1hhnU</argument>
       <argument>/home/webmaster/www/public_html/DevLeagues/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -2093,14 +2135,6 @@
       <call method="addListenerService">
         <argument>kernel.controller</argument>
         <argument type="collection">
-          <argument>data_collector.router</argument>
-          <argument>onKernelController</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListenerService">
-        <argument>kernel.controller</argument>
-        <argument type="collection">
           <argument>avanzu_admin_theme.setup_theme_listener</argument>
           <argument>onKernelController</argument>
         </argument>
@@ -2111,6 +2145,70 @@
         <argument type="collection">
           <argument>avanzu_admin_theme.context_listener</argument>
           <argument>onRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.navbar_user</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.navbar_user_listener</argument>
+          <argument>onShowUser</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.sidebar_user</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.navbar_user_listener</argument>
+          <argument>onShowUser</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.tasks</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.navbar_task_listener</argument>
+          <argument>onListTasks</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.notifications</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.navbar_notify_listener</argument>
+          <argument>onListNotifications</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.messages</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.navbar_msg_listener</argument>
+          <argument>onListMessages</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.sidebar_setup_menu</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.setup_menu_listener</argument>
+          <argument>onSetupMenu</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>theme.breadcrumb</argument>
+        <argument type="collection">
+          <argument>avanzu_admin_theme.setup_menu_listener</argument>
+          <argument>onSetupMenu</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.controller</argument>
+        <argument type="collection">
+          <argument>data_collector.router</argument>
+          <argument>onKernelController</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2419,7 +2517,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>58754eaca2dd30.12123165</argument>
+            <argument>58825abf111d39.34362272</argument>
           </service>
         </argument>
       </argument>
@@ -2688,9 +2786,9 @@
                 <argument type="collection"/>
                 <call method="setOptions">
                   <argument type="collection">
+                    <argument key="login_path">fos_user_security_login</argument>
                     <argument key="always_use_default_target_path">false</argument>
                     <argument key="default_target_path">/</argument>
-                    <argument key="login_path">/login</argument>
                     <argument key="target_path_parameter">_target_path</argument>
                     <argument key="use_referer">false</argument>
                   </argument>
@@ -2713,7 +2811,7 @@
                 <argument type="service" id="monolog.logger.security" on-invalid="null"/>
                 <call method="setOptions">
                   <argument type="collection">
-                    <argument key="login_path">/login</argument>
+                    <argument key="login_path">fos_user_security_login</argument>
                     <argument key="failure_path">null</argument>
                     <argument key="failure_forward">false</argument>
                     <argument key="failure_path_parameter">_failure_path</argument>
@@ -2722,7 +2820,7 @@
               </service>
             </argument>
             <argument type="collection">
-              <argument key="check_path">/login_check</argument>
+              <argument key="check_path">fos_user_security_check</argument>
               <argument key="use_forward">false</argument>
               <argument key="require_previous_session">true</argument>
               <argument key="username_parameter">_username</argument>
@@ -2739,7 +2837,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>58754eaca2dd30.12123165</argument>
+            <argument>58825abf111d39.34362272</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2821,7 +2919,7 @@
                   <argument type="service" id="router" on-invalid="null"/>
                 </service>
               </argument>
-              <argument>/login</argument>
+              <argument>fos_user_security_login</argument>
               <argument>false</argument>
             </service>
           </argument>
@@ -2876,6 +2974,9 @@
           <argument key="thousands_separator">,</argument>
         </argument>
       </argument>
+      <call method="addExtension">
+        <argument type="service" id="avanzu_admin_theme.widget_extension.class"/>
+      </call>
       <call method="addExtension">
         <argument type="service">
           <service class="Symfony\Bridge\Twig\Extension\LogoutUrlExtension" public="false">
@@ -2998,9 +3099,6 @@
             <tag name="twig.extension"/>
           </service>
         </argument>
-      </call>
-      <call method="addExtension">
-        <argument type="service" id="avanzu_admin_theme.widget_extension.class"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -3490,27 +3588,6 @@
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
-    </service>
-    <service id="avanzu_admin_theme.exception_controller" class="Avanzu\AdminThemeBundle\Controller\ExceptionController">
-      <argument type="service" id="twig"/>
-      <argument>true</argument>
-    </service>
-    <service id="avanzu_admin_theme.widget_extension.class" class="Avanzu\AdminThemeBundle\Twig\WidgetExtension">
-      <tag name="twig.extension"/>
-    </service>
-    <service id="avanzu_admin_theme.theme_manager" class="Avanzu\AdminThemeBundle\Theme\ThemeManager">
-      <argument type="service" id="service_container"/>
-      <argument></argument>
-    </service>
-    <service id="avanzu_admin_theme.setup_theme_listener" class="Avanzu\AdminThemeBundle\EventListener\SetupThemeListener">
-      <tag name="kernel.event_listener" event="kernel.controller" method="onKernelController"/>
-      <argument type="service" id="avanzu_admin_theme.theme_manager"/>
-      <argument></argument>
-      <argument></argument>
-    </service>
-    <service id="avanzu_admin_theme.context_listener" class="Avanzu\AdminThemeBundle\EventListener\ContextListener">
-      <tag name="kernel.event_listener" event="kernel.request" method="onRequest"/>
-      <argument type="service" id="service_container"/>
     </service>
     <service id="assetic.filter_manager" class="Symfony\Bundle\AsseticBundle\FilterManager">
       <argument type="service" id="service_container"/>
@@ -5184,20 +5261,54 @@
           <argument>mopa_bootstrap.form.type_extension.horizontal</argument>
           <argument>mopa_bootstrap.form.type_extension.widget_collection</argument>
           <argument>mopa_bootstrap.form.type_extension.tabbed</argument>
+          <argument>form.type_extension.form.http_foundation</argument>
+          <argument>form.type_extension.form.validator</argument>
+          <argument>form.type_extension.csrf</argument>
+          <argument>form.type_extension.form.data_collector</argument>
+          <argument>sonata.admin.form.extension.field</argument>
+          <argument>mopa_bootstrap.form.type_extension.help</argument>
+          <argument>mopa_bootstrap.form.type_extension.legend</argument>
+          <argument>mopa_bootstrap.form.type_extension.error</argument>
+          <argument>mopa_bootstrap.form.type_extension.widget</argument>
+          <argument>mopa_bootstrap.form.type_extension.horizontal</argument>
+          <argument>mopa_bootstrap.form.type_extension.widget_collection</argument>
+          <argument>mopa_bootstrap.form.type_extension.tabbed</argument>
+          <argument>form.type_extension.form.http_foundation</argument>
+          <argument>form.type_extension.form.validator</argument>
+          <argument>form.type_extension.csrf</argument>
+          <argument>form.type_extension.form.data_collector</argument>
+          <argument>sonata.admin.form.extension.field</argument>
+          <argument>mopa_bootstrap.form.type_extension.help</argument>
+          <argument>mopa_bootstrap.form.type_extension.legend</argument>
+          <argument>mopa_bootstrap.form.type_extension.error</argument>
+          <argument>mopa_bootstrap.form.type_extension.widget</argument>
+          <argument>mopa_bootstrap.form.type_extension.horizontal</argument>
+          <argument>mopa_bootstrap.form.type_extension.widget_collection</argument>
+          <argument>mopa_bootstrap.form.type_extension.tabbed</argument>
         </argument>
         <argument key="repeated" type="collection">
+          <argument>form.type_extension.repeated.validator</argument>
+          <argument>form.type_extension.repeated.validator</argument>
           <argument>form.type_extension.repeated.validator</argument>
         </argument>
         <argument key="submit" type="collection">
           <argument>form.type_extension.submit.validator</argument>
+          <argument>form.type_extension.submit.validator</argument>
+          <argument>form.type_extension.submit.validator</argument>
         </argument>
         <argument key="choice" type="collection">
+          <argument>sonata.admin.form.extension.choice</argument>
+          <argument>sonata.admin.form.extension.choice</argument>
           <argument>sonata.admin.form.extension.choice</argument>
         </argument>
         <argument key="button" type="collection">
           <argument>mopa_bootstrap.form.type_extension.button</argument>
+          <argument>mopa_bootstrap.form.type_extension.button</argument>
+          <argument>mopa_bootstrap.form.type_extension.button</argument>
         </argument>
         <argument key="date" type="collection">
+          <argument>mopa_bootstrap.form.type_extension.date</argument>
+          <argument>mopa_bootstrap.form.type_extension.date</argument>
           <argument>mopa_bootstrap.form.type_extension.date</argument>
         </argument>
       </argument>

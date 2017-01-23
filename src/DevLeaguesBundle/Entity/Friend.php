@@ -12,14 +12,28 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Friend
 {
+	/**
+	 * @var int
+	 *
+	 * @ORM\Column(name="id", type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToMany(targetEntity="User", mappedBy="friendsWithMe")
      */
-    private $id;
+    private $userA;
+
+	/**
+	 * @var int
+	 *
+	 * @ORM\ManyToOne(targetEntity="User", inversedBy="friends")
+	 */
+	private $userB;
 
     /**
      * @var string
@@ -28,12 +42,6 @@ class Friend
      */
     private $relation;
 
-    /**
-     * @var int
-     *
-     */
-    private $userId;
-    
     /**
      * Get id
      *

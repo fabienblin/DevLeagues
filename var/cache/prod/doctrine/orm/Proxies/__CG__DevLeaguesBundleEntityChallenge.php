@@ -64,10 +64,10 @@ class Challenge extends \DevLeaguesBundle\Entity\Challenge implements \Doctrine\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'name', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'description', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'creationTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'endTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'technology', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'users', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'rewards'];
+            return ['__isInitialized__', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'name', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'description', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'creationTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'endTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'technologies', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'users', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'rewards'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'name', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'description', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'creationTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'endTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'technology', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'users', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'rewards'];
+        return ['__isInitialized__', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'id', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'name', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'description', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'creationTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'endTimestamp', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'technologies', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'users', '' . "\0" . 'DevLeaguesBundle\\Entity\\Challenge' . "\0" . 'rewards'];
     }
 
     /**
@@ -318,6 +318,28 @@ class Challenge extends \DevLeaguesBundle\Entity\Challenge implements \Doctrine\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getUsers', []);
 
         return parent::getUsers();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addUser(\DevLeaguesBundle\Entity\User $user)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addUser', [$user]);
+
+        return parent::addUser($user);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeUser(\DevLeaguesBundle\Entity\User $user)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeUser', [$user]);
+
+        return parent::removeUser($user);
     }
 
     /**

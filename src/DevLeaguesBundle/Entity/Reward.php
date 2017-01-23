@@ -3,6 +3,7 @@
 namespace DevLeaguesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Reward
@@ -36,9 +37,9 @@ class Reward
     private $value;
 
     /**
-     * @var array
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="challenges", type="array")
+     * @ORM\ManyToOne(targetEntity="Challenge", inversedBy="rewards")
      */
     private $challenges;
 
@@ -128,7 +129,7 @@ class Reward
     /**
      * Set challenges
      *
-     * @param array $challenges
+     * @param ArrayCollection $challenges
      *
      * @return Reward
      */
@@ -142,7 +143,7 @@ class Reward
     /**
      * Get challenges
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getChallenges()
     {

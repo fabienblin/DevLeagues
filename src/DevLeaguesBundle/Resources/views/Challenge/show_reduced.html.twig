@@ -1,5 +1,35 @@
-{% extends "DevLeaguesBundle:Challenge:index.html.twig" %}
+{% extends "DevLeaguesBundle::base.html.twig" %}
 
-{% block body %}
-<h1>Welcome to the Challenge:showReduced page</h1>
+{% import "DevLeaguesBundle::macros.html.twig" as dl_macro %}
+
+{% block page_title %}Challenges{% endblock %}
+{% block page_subtitle %}whatever{% endblock %}
+
+{% block page_content %}
+{% if is_granted('ROLE_USER') %}
+<div class="row">
+	<div class="col-lg-12">
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4>My Challenges</h4>
+						<a href="{{ path('new_challenge') }}" class="btn btn-primary">Create New Challenge</a>
+					</div>
+					<table class="table">
+						{% for challenge in my_challenges %}
+							{{ dl_macro.my_challenge_reduced(challenge) }}
+						{% endfor %}
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+<div class="row">
+	{% for challenge in challenges %}
+		{{ dl_macro.challenge_reduced(challenge) }}
+	{% endfor %}
+</div>
 {% endblock %}

@@ -1,5 +1,55 @@
-{% extends "DevLeaguesBundle:Challenge:index.html.twig" %}
+{% extends "DevLeaguesBundle::base.html.twig" %}
 
-{% block body %}
-<h1>Welcome to the Challenge:show page</h1>
+{% import "AvanzuAdminThemeBundle:layout:macros.html.twig" as macro %}
+
+{% block page_title %}Challenge{% endblock %}
+{% block page_subtitle %}Read Only{% endblock %}
+
+{% block page_content %}
+<div class="row">
+	<div class="col-lg-4">
+		<div class="box box-primary">
+			<div class="box-header">
+				<img src=""
+				alt="image de la ligue"
+				class="profile-user-img img-responsive img-circle"/>
+				<h3 class="profile-username text-center">{{ challenge.name }}</h3>
+			</div>
+			<div class="box-body">
+				<p>
+					{{ challenge.description }}
+				</p>
+				<label>Time left</label>
+				<progress value="50" max="100"></progress>
+			</div>
+			<div class="box-footer">
+				<a href="#" class="btn btn-primary btn-block">Edit</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3>Technologies</h3>
+			</div>
+			<div class="box-body">
+				<p>ici plein de progress</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3>Rewards</h3>
+			</div>
+			<div class="box-body">
+				<p>
+					ici la liste des recompenses
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

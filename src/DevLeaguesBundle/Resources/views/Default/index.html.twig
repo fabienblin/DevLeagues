@@ -1,58 +1,22 @@
-{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+{% extends "DevLeaguesBundle::default.html.twig" %}
 
-{% block page_title %}Home Page{% endblock %}
+{% block page_title %}Default{% endblock %}
+{% block page_subtitle %}text{% endblock %}
 
+{% block box_header %}
+	<h3>
+		box_header
+	</h3>
+{% endblock %}
 
-{% block page_subtitle %}This is the temporary home page of DevLeagues.com{% endblock %}
+{% block box_body %}
+	<p>
+		box_body
+	</p>
+{% endblock %}
 
-
-
-
-
-
-{% block page_content %}
-<br />
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Phasellus cursus eros nec bibendum porttitor. Suspendisse semper pellentesque enim, laoreet accumsan est placerat nec.
-Sed eu sem placerat, facilisis nisi vitae, tristique risus. Ut condimentum sem ac nibh ultrices, non maximus urna condimentum.
-Duis id bibendum magna. Suspendisse potenti. Integer iaculis ultrices ultricies. Donec in mauris quis erat ornare porttitor in vel sem.
-Vivamus tincidunt tempus dui, a egestas mi congue in. Morbi tincidunt sapien at urna posuere lobortis.
-Duis sodales mauris vel nisi accumsan gravida. Proin sed orci id justo fringilla tincidunt.
-<br />
-<br />
-Duis felis sapien, lobortis quis elit ac, finibus interdum tortor. Mauris purus nunc, vehicula at volutpat a, fringilla tristique nisl.
-Mauris semper at nulla id aliquet. Curabitur congue ultrices leo pellentesque auctor. Etiam id venenatis ex, vel sagittis sapien.
-Donec arcu tellus, iaculis sit amet pulvinar vel, sagittis id felis.
-Suspendisse feugiat, nulla ac gravida consectetur, tellus nunc molestie tortor, fringilla ullamcorper augue nulla id libero.
-<br />
-<br />
-Maecenas scelerisque metus non nisi rutrum maximus. Mauris rhoncus blandit finibus.
-Phasellus scelerisque felis ut nulla luctus, ac sollicitudin ex fringilla.
-In molestie quam libero, a viverra lacus tristique vitae. Praesent viverra nunc sed tincidunt congue.
-Phasellus vel justo ac dui placerat ornare. Integer luctus nisl vel hendrerit porttitor.
-Vestibulum volutpat mi risus, vel dictum dui tempor nec. Aenean venenatis est ut venenatis vulputate.
-Suspendisse quis quam metus. Quisque ac ultrices turpis. Phasellus volutpat sed tellus ac dapibus.
-Nulla luctus nec metus eget accumsan.
-<br /><br />
-Nulla non ipsum lectus. Nunc dui velit, aliquet vitae massa a, egestas pretium felis.
-Donec pretium ipsum quis turpis accumsan elementum. Donec auctor nibh erat, vitae scelerisque risus pretium ut.
-Praesent mattis non nibh sed molestie. Praesent sit amet ultrices felis. Donec sodales, dolor id mattis posuere,
-est mauris hendrerit leo, eu auctor tellus ante sit amet ipsum. Donec nisi turpis, interdum at auctor ac,
-vehicula non felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-<br /><br />
-Nulla at placerat ligula, vitae efficitur tortor. Suspendisse in dictum lorem.
-Ut sed facilisis diam. Praesent tristique vehicula nisl, fermentum dapibus arcu condimentum eget.
-Nunc egestas leo vel sapien cursus placerat. Sed condimentum et odio ut imperdiet. Aenean vel turpis
-vitae nibh rhoncus efficitur. Suspendisse nibh tortor, pharetra et turpis id, tempor blandit nisi. 
-<br />
-<br />
-<br />
-<a href={{ asset('app_dev.php/contact') }}>Contact</a>
-<br />
-<a href={{ asset('app_dev.php/about') }}>About</a>
-<br />
-<a href={{ asset('app_dev.php/challenge') }}>challenge</a>
-<br />
-<a href={{ asset('app_dev.php/community') }}>community</a>
-<br />
+{% block box_footer %}
+	<p>
+		box_footer
+	</p>
 {% endblock %}

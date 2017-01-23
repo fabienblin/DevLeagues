@@ -6,6 +6,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ *
+ */
 class UserType extends AbstractType
 {
     /**
@@ -13,9 +16,17 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('firstName')->add('lastName')->add('experience')->add('avatar')->add('notoriety')->add('leagues')->add('technologies')->add('events')->add('friends')        ;
+        $builder->add('firstName')
+		->add('lastName')
+		->add('experience')
+		->add('avatar')
+		->add('notoriety')
+		->add('leagues')
+		->add('technologies')
+		->add('events')
+		->add('friends');
     }
-    
+
     /**
      * {@inheritdoc}
      */

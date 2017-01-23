@@ -3,6 +3,7 @@
 namespace DevLeaguesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Technology
@@ -29,16 +30,16 @@ class Technology
     private $name;
 
     /**
-     * @var string
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="users", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="technologies")
      */
     private $users;
 
     /**
-     * @var array
+     * @var ArrayCollection
      *
-     * @ORM\Column(name="challenges", type="array")
+     * @ORM\ManyToMany(targetEntity="Challenge", mappedBy="technologies")
      */
     private $challenges;
 
@@ -104,7 +105,7 @@ class Technology
     /**
      * Set challenges
      *
-     * @param array $challenges
+     * @param ArrayCollection $challenges
      *
      * @return Technology
      */
@@ -118,7 +119,7 @@ class Technology
     /**
      * Get challenges
      *
-     * @return array
+     * @return ArrayCollection
      */
     public function getChallenges()
     {

@@ -1,5 +1,14 @@
-{% extends "DevLeaguesBundle:League:base.html.twig" %}
+{% extends "DevLeaguesBundle::base.html.twig" %}
 
-{% block body %}
-<h1>Welcome to the League:showReduced page</h1>
+{% import "DevLeaguesBundle::macros.html.twig" as dl_macro %}
+
+{% block page_title %}Leagues{% endblock %}
+{% block page_subtitle %}whatever{% endblock %}
+
+{% block page_content %}
+<div class="row">
+	{% for league in leagues %}
+		{{ dl_macro.league_reduced(league) }}
+	{% endfor %}
+</div>
 {% endblock %}

@@ -27,6 +27,8 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
                 #csrf_token_generator: security.csrf.token_manager !!!!décommenter va créer une erreur !!!!
             # activate different ways to authenticate
 
@@ -40,3 +42,4 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+#       - { path: ^/user/{userId}, role: ROLE_USER }

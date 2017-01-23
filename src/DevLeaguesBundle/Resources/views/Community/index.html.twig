@@ -1,5 +1,14 @@
 {% extends "DevLeaguesBundle::base.html.twig" %}
 
-{% block body %}
-<h1>Welcome to the Community:index page</h1>
+{% import "DevLeaguesBundle::macros.html.twig" as dl_macro %}
+
+{% block page_title %}People{% endblock %}
+{% block page_subtitle %}whatever{% endblock %}
+
+{% block page_content %}
+<div class="row">
+	{% for user in users %}
+		{{ dl_macro.user_reduced(user) }}
+	{% endfor %}
+</div>
 {% endblock %}

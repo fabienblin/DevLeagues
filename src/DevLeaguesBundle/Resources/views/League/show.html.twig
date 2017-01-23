@@ -1,4 +1,69 @@
-{% extends "DevLeaguesBundle:League:base.html.twig" %}
-{% block body %}
-<h1>Welcome to the League:show page</h1>
+{% extends "DevLeaguesBundle::base.html.twig" %}
+
+{% block page_title %}League{% endblock %}
+{% block page_subtitle %}Read Only{% endblock %}
+
+{% block page_content %}
+<div class="row">
+	{% if league %}
+	<div class="col-lg-4">
+		<div class="box box-primary">
+			<div class="box-header">
+				<img src=""
+				alt="image de la ligue"
+				class="profile-user-img img-responsive img-circle"/>
+				<h3 class="profile-username text-center">{{ league.name }}</h3>
+			</div>
+			<div class="box-body">
+				<p>
+					description de la ligue.
+				</p>
+			</div>
+			<div class="box-footer">
+				<a href="#" class="btn btn-primary btn-block">Edit</a>
+				<a href="#" class="btn btn-primary btn-block">Join</a>
+				<a href="#" class="btn btn-warning btn-block">Quit</a>
+				<a href="#" class="btn btn-danger btn-block">Delete</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3>Technologies</h3>
+			</div>
+			<div class="box-body">
+				<p>ici plein de progress</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3>Members</h3>
+			</div>
+			<div class="box-body">
+				<p>
+					ici la liste des membres et leur statu
+				</p>
+			</div>
+		</div>
+	</div>
+	{% else %}
+	<div class="col-lg-12">
+		<div class="box box-primary">
+			<div class="box-header">
+				<h3>Sry but you are not member of any league.</h3>
+			</div>
+			<div class="box-body">
+				<p>
+					Try to join one that fits your interests. You can also create your own league.
+				</p>
+			</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
 {% endblock %}

@@ -1,0 +1,17 @@
+{% extends "DevLeaguesBundle::default.html.twig" %}
+
+{% import "DevLeaguesBundle::macros.html.twig" as dl_macro %}
+
+{% block page_title %}News{% endblock %}
+{% block page_subtitle %}Hot stuf{% endblock %}
+
+{% block page_content %}
+<ul class="timeline">
+	{% for news in newss %}
+		{{ dl_macro.news_reduced(news) }}
+	{% endfor %}
+	<li>
+		<i class="fa fa-clock-o bg-gray"></i>
+	</li>
+</ul>
+{% endblock %}

@@ -1,5 +1,27 @@
-{% extends "DevLeaguesBundle::base.html.twig" %}
+{% extends "DevLeaguesBundle::default.html.twig" %}
 
-{% block body %}
-<h1>Welcome to the About:index page</h1>
+{% block page_title %}About{% endblock %}
+{% block page_subtitle %}How did it all happen in the first place{% endblock %}
+
+{% block box_header %}
+	<h3>
+		Where it all came from.
+	</h3>
+{% endblock %}
+
+{% block box_body %}
+<p>
+	This project started on december 2016 by Fabien Blin, as a personal project
+	but with the conviction it could be the beginning of a great adventure.
+</p>
+<p>
+	The idea came after some delicious pizza with schoolmates, talking about how
+	to challenge newbies on simple school exercices. Moreover, it would be
+	essencial to reward masters and pupils for their participation and get
+	reputation from victories in order to show other schoolmates the best teams.
+</p>
+{% endblock %}
+
+{% block box_footer %}
+
 {% endblock %}

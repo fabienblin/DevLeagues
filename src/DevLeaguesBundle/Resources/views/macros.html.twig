@@ -1,0 +1,94 @@
+{% macro league_reduced(league) %}
+	<div class="col-lg-6">
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-lg-8">
+						<a href="{{ path('show_league', {leagueId: league.id})}}"><h3>{{league.name}}</h3></a>
+
+						<p>description</p>
+					</div>
+					<div class="col-lg-4">
+						<img src=""
+						alt="image de la ligue"
+						class="img-responsive img-circle"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro challenge_reduced(challenge) %}
+	<div class="col-lg-6">
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-lg-8">
+						<a href="{{ path('show_challenge',{challengeId: challenge.id}) }}"><h3>{{challenge.name}}</h3></a>
+
+						<p>{{ challenge.description }}</p>
+					</div>
+					<div class="col-lg-4">
+						<img src=""
+						alt="image de la ligue"
+						class="img-responsive img-circle"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro my_challenge_reduced(challenge) %}
+<tr>
+  <th><a href="{{ path('show_challenge', {challengeId: challenge.id}) }}">{{challenge.name}}</a></th>
+  <th>End : {{ challenge.endTimestamp|date("m/d/Y") }}</th>
+  <th>{{ challenge.description }}</th>
+</tr>
+{% endmacro %}
+
+{% macro user_reduced(user) %}
+	<div class="col-lg-6">
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-lg-8">
+						<a href="{{ path('show_user', {userId: user.id}) }}"><h3>{{user.username}}</h3></a>
+					</div>
+					<div class="col-lg-4">
+						<img src=""
+						alt="image de la ligue"
+						class="img-responsive img-circle"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endmacro %}
+
+{% macro news_reduced(news) %}
+    <li class="time-label">
+        <span class="bg-red">
+            {#{{ news.date }}#} 01/01/2017
+        </span>
+    </li>
+    <li>
+        <i class="fa fa-envelope bg-blue"></i>
+        <div class="timeline-item">
+            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+
+            <h3 class="timeline-header"><a href="#">{{ news.name }}</a></h3>
+
+            <div class="timeline-body">
+                {{ news.content }}
+            </div>
+
+            <div class="timeline-footer">
+                <p>
+                	Tags : javascript machine-learning challenge
+                </p>
+            </div>
+        </div>
+    </li>
+{% endmacro %}
