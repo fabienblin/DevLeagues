@@ -1,4 +1,6 @@
 DevLeagues
 ==========
+Welcome to the DevLeagues project where programming students, challengers and professionnals meet.
+[devleagues.hopto.org](http://devleagues.hopto.org)
 
-A Symfony project created on February 18, 2017, 1:18 pm.
+Contributors: Fabien Blin, Jules Lasne, Fabient Huart
