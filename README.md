@@ -4,3 +4,4 @@ Welcome to the DevLeagues project where programming students, challengers and pr
 [devleagues.hopto.org](http://devleagues.hopto.org)
 
 Contributors: Fabien Blin, Jules Lasne, Fabient Huart
+Version 0.4
