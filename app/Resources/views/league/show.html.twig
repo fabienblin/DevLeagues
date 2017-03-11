@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>League</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ league.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ league.name }}</td>
+            </tr>
+            <tr>
+                <th>Level</th>
+                <td>{{ league.level }}</td>
+            </tr>
+            <tr>
+                <th>Notoriety</th>
+                <td>{{ league.notoriety }}</td>
+            </tr>
+            <tr>
+                <th>Creation</th>
+                <td>{% if league.creation %}{{ league.creation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+			<tr>
+                <th>Technologies</th>
+				{% for technology in league.technologies %}
+				    <td>{{ technology.name }}</td>
+				{% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('league_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('league_edit', { 'id': league.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

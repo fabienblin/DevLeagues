@@ -1,0 +1,4 @@
+services:
+#    dev_leagues.example:
+#        class: DevLeaguesBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
