@@ -18,4 +18,4 @@ Debian VM running Apache for Symfony 3
 
 This project is unfinished because it was experimental
 
-Symfony is a very good framework on multiple aspects and it is very 
+Symfony is a very good framework on multiple aspects and it is open source 
