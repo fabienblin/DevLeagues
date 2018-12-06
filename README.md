@@ -7,7 +7,9 @@ Version 0.4
 This website was hosted available to see while construction thanks to no-ip (free dyn DNS) and Virtual-Box
 
 [devleagues.hopto.org](http://devleagues.hopto.org)
+
 Debian VM running Apache for Symfony 3
+
 Contributors: Fabien Blin, Jules Lasne, Fabient Huart
 
 
